@@ -10,6 +10,9 @@ import { BasketComponent } from './components/basket/basket.component';
 import { Page404Component } from './components/page404/page404.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CarouselModule,
+    BrowserAnimationsModule,
   ],
   providers: [ GetDataService],
   bootstrap: [AppComponent]

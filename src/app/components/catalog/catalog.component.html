@@ -1,8 +1,16 @@
+<owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of slides">
+      <ng-template carouselSlide [id]="slide.id">
+        <img [src]="slide.img" class="slide">
+      </ng-template>
+    </ng-container>
+    </owl-carousel-o>
+<div id="catalog">
 <div *ngFor="let product of products" class="product">
     <img src="{{product.image}}">
     <h4>{{product.title}}</h4>
     <p>{{product.description}}</p>
     <p> {{product.price | currency}} </p>
     <button id="buy">buy</button>
-</div>
+</div></div>
 <app-contacts></app-contacts>

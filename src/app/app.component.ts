@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular_website';
+
+  LogoImage: string = 'assets/image/spilo-logo.png';
+
 }
+
