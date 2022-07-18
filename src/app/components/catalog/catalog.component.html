@@ -1,16 +1,24 @@
 <owl-carousel-o [options]="customOptions">
-    <ng-container *ngFor="let slide of slides">
-      <ng-template carouselSlide [id]="slide.id">
-        <img [src]="slide.img" class="slide">
-      </ng-template>
-    </ng-container>
-    </owl-carousel-o>
+  <ng-container *ngFor="let slide of slides">
+    <ng-template carouselSlide [id]="slide.id">
+      <img [src]="slide.img" class="slide">
+    </ng-template>
+  </ng-container>
+  </owl-carousel-o>
+  
+ 
 <div id="catalog">
-<div *ngFor="let product of products" class="product">
-    <img src="{{product.image}}">
-    <h4>{{product.title}}</h4>
-    <p>{{product.description}}</p>
-    <p> {{product.price | currency}} </p>
-    <button id="buy">buy</button>
-</div></div>
+<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: page }">
+  <img mat-card-image src="{{product.image}}">
+  <mat-card-title>{{product.title}}</mat-card-title>
+  <mat-card-content>
+  <p> {{product.price | currency}} </p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+  <button id="buy">buy</button>
+</mat-card-actions>
+</mat-card></div>
+<div class="pagination">
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
 <app-contacts></app-contacts>

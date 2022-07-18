@@ -11,7 +11,9 @@ import { Page404Component } from './components/page404/page404.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card'
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppRoutingModule,
     HttpClientModule,
     CarouselModule,
+    MatCardModule,
+    NgxPaginationModule,
     BrowserAnimationsModule,
   ],
   providers: [ GetDataService],

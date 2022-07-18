@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { GetDataService } from '../shared/get-data.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -14,7 +14,8 @@ interface Product{
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  styleUrls: ['./catalog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CatalogComponent implements OnInit, Product {
@@ -36,7 +37,10 @@ export class CatalogComponent implements OnInit, Product {
       console.log(res);
     })
   }
+  page: number = 1;
 
+
+  // Carousel
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
