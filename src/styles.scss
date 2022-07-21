@@ -33,9 +33,5 @@ $angular_website-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($angular_website-theme);
 
-body {
-    width:1200px;
-    margin: auto;
-}
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { width:1200px; margin: auto; font-family: Roboto, "Helvetica Neue", sans-serif; }

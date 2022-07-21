@@ -42,12 +42,14 @@ export class CatalogComponent implements OnInit, Product {
 
   // Carousel
   customOptions: OwlOptions = {
+    autoplay : true,
+    autoplayTimeout: 8000,
     loop: true,
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
     dots: true,
-    navSpeed: 700,
+    navSpeed: 2000,
     navText: ['', '',],
     responsive: {
       1024: {

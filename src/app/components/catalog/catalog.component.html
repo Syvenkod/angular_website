@@ -5,10 +5,10 @@
     </ng-template>
   </ng-container>
   </owl-carousel-o>
-  
- 
+
+
 <div id="catalog">
-<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: page }">
+<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: page }">
   <img mat-card-image src="{{product.image}}">
   <mat-card-title>{{product.title}}</mat-card-title>
   <mat-card-content>
