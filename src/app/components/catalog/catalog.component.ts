@@ -39,7 +39,6 @@ export class CatalogComponent implements OnInit, Product {
   }
   page: number = 1;
 
-
   // Carousel
   customOptions: OwlOptions = {
     autoplay : true,

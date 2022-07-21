@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'angular_website';
 
   LogoImage: string = 'assets/image/spilo-logo.png';
+  basket: string = 'assets/icon/basket.png'
 
 }
 

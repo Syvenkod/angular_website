@@ -8,17 +8,19 @@
 
 
 <div id="catalog">
-<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: page }">
-  <img mat-card-image src="{{product.image}}">
-  <mat-card-title>{{product.title}}</mat-card-title>
-  <mat-card-content>
-  <p> {{product.price | currency}} </p>
-  </mat-card-content>
-  <mat-card-actions align="end">
+<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: page }" class="product">
+  <div><img mat-card-image src="{{product.image}}">
+  <mat-card-title>{{product.title}}</mat-card-title></div>
+  <mat-card-actions align="start">
+  <p> Price: {{product.price | currency}} </p>
   <button id="buy">buy</button>
 </mat-card-actions>
 </mat-card></div>
+
+
+
 <div class="pagination">
 <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>
+<app-about-us></app-about-us>
 <app-contacts></app-contacts>
