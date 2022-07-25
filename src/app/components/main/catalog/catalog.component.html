@@ -1,11 +1,13 @@
 
 <div id="catalog">
-<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: page }" class="product">
-  <div><img mat-card-image src="{{product.image}}">
-  <mat-card-title>{{product.title}}</mat-card-title></div>
-  <mat-card-actions align="start">
-  <p> Price: {{product.price | currency}} </p>
-  <button id="buy" mat-stroked-button color="primary">buy</button>
+<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: page }" class="product">
+  <app-card
+  image = "{{product.image}}"
+  title = "{{product.title}}"
+  price = "{{product.price}}"
+  ></app-card>
+<mat-card-actions align="end">
+<button id="buy" mat-stroked-button color="primary">buy</button>
 </mat-card-actions>
 </mat-card></div>
 

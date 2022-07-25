@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MainComponent } from '../main.component';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { CardComponent } from '../catalog/card/card.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatCardModule } from '@angular/material/card';
     BasketComponent,
     ContactsComponent,
     AboutUsComponent,
-    MainComponent
+    MainComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,

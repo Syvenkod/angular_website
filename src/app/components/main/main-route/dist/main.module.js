@@ -25,6 +25,7 @@ var button_1 = require("@angular/material/button");
 var main_component_1 = require("../main.component");
 var common_1 = require("@angular/common");
 var card_1 = require("@angular/material/card");
+var card_component_1 = require("../catalog/card/card.component");
 var MainModule = /** @class */ (function () {
     function MainModule() {
     }
@@ -35,7 +36,8 @@ var MainModule = /** @class */ (function () {
                 basket_component_1.BasketComponent,
                 contacts_component_1.ContactsComponent,
                 about_us_component_1.AboutUsComponent,
-                main_component_1.MainComponent
+                main_component_1.MainComponent,
+                card_component_1.CardComponent
             ],
             imports: [
                 common_1.CommonModule,

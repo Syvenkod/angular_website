@@ -22,7 +22,7 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 app_component_1.AppComponent,
                 page404_component_1.Page404Component,
-                footer_component_1.FooterComponent
+                footer_component_1.FooterComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,

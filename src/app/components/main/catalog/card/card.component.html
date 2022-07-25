@@ -1,1 +1,6 @@
-<p>card works!</p>
+<div>
+<div><img mat-card-image src="{{image}}">
+    <mat-card-title>{{title}}</mat-card-title></div>
+    <p> Price: {{price | currency}} </p>
+  <ng-content></ng-content>
+</div>
