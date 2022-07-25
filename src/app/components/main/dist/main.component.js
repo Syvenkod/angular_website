@@ -6,12 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.CatalogComponent = void 0;
+exports.MainComponent = void 0;
 var core_1 = require("@angular/core");
-var CatalogComponent = /** @class */ (function () {
-    function CatalogComponent(getDataService) {
-        this.getDataService = getDataService;
-        this.page = 1;
+var MainComponent = /** @class */ (function () {
+    function MainComponent() {
         // Carousel
         this.customOptions = {
             autoplay: true,
@@ -35,21 +33,15 @@ var CatalogComponent = /** @class */ (function () {
             { id: '3', img: "assets/slides/slide_3.jpg" },
         ];
     }
-    CatalogComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.getDataService.getData().subscribe(function (res) {
-            _this.products = res;
-            console.log(res);
-        });
+    MainComponent.prototype.ngOnInit = function () {
     };
-    CatalogComponent = __decorate([
+    MainComponent = __decorate([
         core_1.Component({
-            selector: 'app-catalog',
-            templateUrl: './catalog.component.html',
-            styleUrls: ['./catalog.component.scss'],
-            changeDetection: core_1.ChangeDetectionStrategy.OnPush
+            selector: 'app-main',
+            templateUrl: './main.component.html',
+            styleUrls: ['./main.component.scss']
         })
-    ], CatalogComponent);
-    return CatalogComponent;
+    ], MainComponent);
+    return MainComponent;
 }());
-exports.CatalogComponent = CatalogComponent;
+exports.MainComponent = MainComponent;
