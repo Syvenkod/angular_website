@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { Page404Component } from './components/page404/page404.component';
 import { MainModule } from './components/main/main-route/main.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -20,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     MainModule,
   ],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,7 @@ var CatalogComponent = /** @class */ (function () {
     }
     CatalogComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getDataService.getData().subscribe(function (res) {
+        this.getDataService.getProductData().subscribe(function (res) {
             _this.products = res;
             console.log(res);
         });

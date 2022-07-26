@@ -19,8 +19,7 @@ interface Product{
 
 export class CatalogComponent implements OnInit, Product {
 
-  constructor(private getDataService: GetDataService) {
-   }
+  constructor(private getDataService: GetDataService) {}
    products:any;
    category: string;
    description: string;
@@ -32,7 +31,7 @@ export class CatalogComponent implements OnInit, Product {
 
 
   ngOnInit(): void {
-    this.getDataService.getData().subscribe(res => {
+    this.getDataService.getProductData().subscribe(res => {
       this.products = res;
       console.log(res);
     })
