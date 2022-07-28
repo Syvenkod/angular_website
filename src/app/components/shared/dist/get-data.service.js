@@ -19,16 +19,16 @@ var GetDataService = /** @class */ (function () {
         return this.http.get('https://fakestoreapi.com/products');
     };
     GetDataService.prototype.getCardData = function () {
-        var _this = this;
-        return this.http.get('https://fakestoreapi.com/carts').pipe(operators_1.map(function (crd) {
+        return this.http.get('https://fakestoreapi.com/carts')
+            .pipe(operators_1.map(function (crd) {
             var newDataArray = [];
             for (var key in crd) {
                 newDataArray.push(new card_1.Card(crd[key].id, crd[key].userId, crd[key].date, [crd[key].productsCard]));
             }
-            console.log(newDataArray);
             newDataArray.forEach(function (card) {
-                card.date = _this.datepipe.transform(card.date, 'MM/dd/YYYY');
+                card.date = new Date(card.date);
             });
+            console.log(newDataArray);
             return newDataArray;
         }));
     };

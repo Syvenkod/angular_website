@@ -14,16 +14,18 @@ export class GetDataService {
   }
 
   getCardData(){
-    return this.http.get('https://fakestoreapi.com/carts').pipe(
+    return this.http.get('https://fakestoreapi.com/carts')
+    .pipe(
       map(crd =>{
         let newDataArray = [];
         for (let key in crd){
         newDataArray.push(new Card (crd[key].id, crd[key].userId, crd[key].date, [crd[key].productsCard]))
         }
-        console.log(newDataArray);
+
         newDataArray.forEach(card=>{
-          card.date = this.datepipe.transform(card.date, 'MM/dd/YYYY')
+          card.date = new Date(card.date)
         })
+        console.log(newDataArray);
         return newDataArray;
       })
     )

@@ -16,18 +16,54 @@ exports.__esModule = true;
 exports.AdminComponent = void 0;
 var core_1 = require("@angular/core");
 var animations_1 = require("@angular/animations");
+var forms_1 = require("@angular/forms");
+var table_1 = require("@angular/material/table");
 var AdminComponent = /** @class */ (function () {
     function AdminComponent(getDataService) {
         this.getDataService = getDataService;
         this.columnsToDisplay = ['id', 'userId', 'date', 'products'];
         this.columnsToDisplayWithExpand = __spreadArrays(this.columnsToDisplay, ['expand']);
-        this.date = new Date();
+        this.filterForm = new forms_1.FormGroup({
+            fromDate: new forms_1.FormControl(null),
+            toDate: new forms_1.FormControl(null)
+        });
+        // this.pipe = new DatePipe('en');
+        // this.dataSource.filterPredicate = (data, filter) =>{
+        //   if (this.fromDate && this.toDate) {
+        //     return data.created >= this.fromDate && data.created <= this.toDate;
+        //   }
+        //   return true;
+        // }
     }
+    Object.defineProperty(AdminComponent.prototype, "fromDate", {
+        get: function () { return this.filterForm.get('fromDate').value; },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AdminComponent.prototype, "toDate", {
+        get: function () { return this.filterForm.get('toDate').value; },
+        enumerable: false,
+        configurable: true
+    });
     AdminComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.getDataService.getCardData().subscribe(function (res) {
-            _this.cardsSource = res;
+            _this.cardsSource = Object.values(res);
+            _this.dataSource = new table_1.MatTableDataSource(_this.cardsSource);
+            console.log(_this.dataSource);
+            _this.dataSource.filterPredicate = function (data, filter) {
+                if (_this.fromDate && _this.toDate) {
+                    return data.date >= _this.fromDate && data.date <= _this.toDate;
+                }
+                return true;
+            };
         });
+    };
+    AdminComponent.prototype.ngAfterContentChecked = function () {
+    };
+    AdminComponent.prototype.applyFilter = function () {
+        console.log(this.fromDate, this.toDate);
+        this.dataSource.filter = '' + Math.random();
     };
     AdminComponent = __decorate([
         core_1.Component({
