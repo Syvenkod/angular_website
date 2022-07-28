@@ -21,7 +21,8 @@ export class CatalogComponent implements OnInit, Product {
 
   constructor(private getDataService: GetDataService) {}
    products:any;
-   category: string;
+   category:string;
+   categories:any;
    description: string;
    id:number;
    image: string;
@@ -33,7 +34,17 @@ export class CatalogComponent implements OnInit, Product {
   ngOnInit(): void {
     this.getDataService.getProductData().subscribe(res => {
       this.products = res;
-      console.log(res);
+      console.log(res);})
+    this.getDataService.getCategoriesData().subscribe(ct => {
+      this.categories = ct;
     })
   }
+
+  showCategory(category){
+    this.getDataService.getCategoryData(category).subscribe(categ => {
+      this.products = categ;
+    })
+  }
+
+
 }

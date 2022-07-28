@@ -23,14 +23,22 @@ var GetDataService = /** @class */ (function () {
             .pipe(operators_1.map(function (crd) {
             var newDataArray = [];
             for (var key in crd) {
-                newDataArray.push(new card_1.Card(crd[key].id, crd[key].userId, crd[key].date, [crd[key].productsCard]));
+                newDataArray.push(new card_1.Card(crd[key].id, crd[key].userId, crd[key].date, crd[key].products));
             }
             newDataArray.forEach(function (card) {
                 card.date = new Date(card.date);
             });
-            console.log(newDataArray);
             return newDataArray;
         }));
+    };
+    GetDataService.prototype.getUserData = function () {
+        return this.http.get('https://fakestoreapi.com/users');
+    };
+    GetDataService.prototype.getCategoriesData = function () {
+        return this.http.get('https://fakestoreapi.com/products/categories');
+    };
+    GetDataService.prototype.getCategoryData = function (category) {
+        return this.http.get("https://fakestoreapi.com/products/category/" + category);
     };
     GetDataService = __decorate([
         core_1.Injectable()

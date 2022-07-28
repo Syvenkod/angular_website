@@ -9,6 +9,7 @@ export class GetDataService {
 
   constructor(private http: HttpClient, public datepipe: DatePipe) { }
 
+
   getProductData(){
    return this.http.get('https://fakestoreapi.com/products')
   }
@@ -19,15 +20,26 @@ export class GetDataService {
       map(crd =>{
         let newDataArray = [];
         for (let key in crd){
-        newDataArray.push(new Card (crd[key].id, crd[key].userId, crd[key].date, [crd[key].productsCard]))
+        newDataArray.push(new Card (crd[key].id, crd[key].userId, crd[key].date, crd[key].products))
         }
 
         newDataArray.forEach(card=>{
           card.date = new Date(card.date)
         })
-        console.log(newDataArray);
         return newDataArray;
       })
     )
+  }
+
+  getUserData(){
+    return this.http.get('https://fakestoreapi.com/users')
+  }
+
+  getCategoriesData(){
+    return this.http.get('https://fakestoreapi.com/products/categories')
+  }
+
+  getCategoryData(category){
+    return this.http.get(`https://fakestoreapi.com/products/category/${category}`)
   }
 }

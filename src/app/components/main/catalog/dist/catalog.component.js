@@ -19,6 +19,15 @@ var CatalogComponent = /** @class */ (function () {
             _this.products = res;
             console.log(res);
         });
+        this.getDataService.getCategoriesData().subscribe(function (ct) {
+            _this.categories = ct;
+        });
+    };
+    CatalogComponent.prototype.showCategory = function (category) {
+        var _this = this;
+        this.getDataService.getCategoryData(category).subscribe(function (categ) {
+            _this.products = categ;
+        });
     };
     CatalogComponent = __decorate([
         core_1.Component({

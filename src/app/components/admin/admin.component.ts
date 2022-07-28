@@ -2,7 +2,6 @@ import { Component, OnInit, AfterContentChecked} from '@angular/core';
 import { GetDataService } from '../shared/get-data.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { Card } from '../shared/card';
-import { DatePipe } from '@angular/common';
 import {FormGroup, FormControl} from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -24,21 +23,21 @@ import { MatTableDataSource } from '@angular/material/table';
 export class AdminComponent implements OnInit, AfterContentChecked{
 
 
-
   constructor(private getDataService: GetDataService,) {
-    // this.pipe = new DatePipe('en');
-    // this.dataSource.filterPredicate = (data, filter) =>{
-    //   if (this.fromDate && this.toDate) {
-    //     return data.created >= this.fromDate && data.created <= this.toDate;
-    //   }
-    //   return true;
-    // }
   }
-  cardsSource: any;
+
   columnsToDisplay: string[] = ['id', 'userId', 'date', 'products'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: Card | null;
+  cardSource:any;
   dataSource: any;
+  products:any;
+  product:any;
+  id:number;
+  image: string;
+  price: number;
+  title: string;
+  users: any;
 
 
    filterForm = new FormGroup({
@@ -50,10 +49,15 @@ export class AdminComponent implements OnInit, AfterContentChecked{
   get toDate() { return this.filterForm.get('toDate').value; }
 
   ngOnInit(): void {
+    // for card
     this.getDataService.getCardData().subscribe(res => {
-      this.cardsSource = Object.values(res);
-      this.dataSource = new MatTableDataSource(this.cardsSource);
+      this.cardSource = Object.values(res);
+      this.dataSource = new MatTableDataSource(Object.values(res));
       console.log(this.dataSource);
+      console.log(this.cardSource);
+
+
+
      this.dataSource.filterPredicate = (data, filter) =>{
       if (this.fromDate && this.toDate) {
       return data.date >= this.fromDate && data.date <= this.toDate;
@@ -61,13 +65,26 @@ export class AdminComponent implements OnInit, AfterContentChecked{
       return true;
     }
     })
+
+    // for products
+    this.getDataService.getProductData().subscribe(pro => {
+      this.product = Object.values(pro)
+      console.log(this.product);
+
+    })
+
+    // for users
+    this.getDataService.getUserData().subscribe(us=> {
+      this.users = Object.values(us)
+      console.log(this.users);
+
+    })
   }
 
   ngAfterContentChecked(): void {
 
   }
   applyFilter() {
-    console.log(this.fromDate, this.toDate);
     this.dataSource.filter = ''+Math.random();
   }
 }

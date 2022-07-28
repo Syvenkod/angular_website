@@ -27,13 +27,6 @@ var AdminComponent = /** @class */ (function () {
             fromDate: new forms_1.FormControl(null),
             toDate: new forms_1.FormControl(null)
         });
-        // this.pipe = new DatePipe('en');
-        // this.dataSource.filterPredicate = (data, filter) =>{
-        //   if (this.fromDate && this.toDate) {
-        //     return data.created >= this.fromDate && data.created <= this.toDate;
-        //   }
-        //   return true;
-        // }
     }
     Object.defineProperty(AdminComponent.prototype, "fromDate", {
         get: function () { return this.filterForm.get('fromDate').value; },
@@ -47,10 +40,12 @@ var AdminComponent = /** @class */ (function () {
     });
     AdminComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // for card
         this.getDataService.getCardData().subscribe(function (res) {
-            _this.cardsSource = Object.values(res);
-            _this.dataSource = new table_1.MatTableDataSource(_this.cardsSource);
+            _this.cardSource = Object.values(res);
+            _this.dataSource = new table_1.MatTableDataSource(Object.values(res));
             console.log(_this.dataSource);
+            console.log(_this.cardSource);
             _this.dataSource.filterPredicate = function (data, filter) {
                 if (_this.fromDate && _this.toDate) {
                     return data.date >= _this.fromDate && data.date <= _this.toDate;
@@ -58,11 +53,20 @@ var AdminComponent = /** @class */ (function () {
                 return true;
             };
         });
+        // for products
+        this.getDataService.getProductData().subscribe(function (pro) {
+            _this.product = Object.values(pro);
+            console.log(_this.product);
+        });
+        // for users
+        this.getDataService.getUserData().subscribe(function (us) {
+            _this.users = Object.values(us);
+            console.log(_this.users);
+        });
     };
     AdminComponent.prototype.ngAfterContentChecked = function () {
     };
     AdminComponent.prototype.applyFilter = function () {
-        console.log(this.fromDate, this.toDate);
         this.dataSource.filter = '' + Math.random();
     };
     AdminComponent = __decorate([

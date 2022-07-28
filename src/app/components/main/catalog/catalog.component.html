@@ -1,6 +1,11 @@
+<div id="category">
+<mat-card *ngFor="let category of categories" (click)="showCategory(category)">
+  <mat-card-title>{{category}}</mat-card-title>
+</mat-card>
+</div>
 
 <div id="catalog">
-<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: page }" class="product">
+<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page }" class="product">
   <app-card
   image = "{{product.image}}"
   title = "{{product.title}}"
