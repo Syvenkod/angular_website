@@ -27,6 +27,7 @@ var common_1 = require("@angular/common");
 var card_1 = require("@angular/material/card");
 var card_component_1 = require("../catalog/card/card.component");
 var select_1 = require("@angular/material/select");
+var search_filter_pipe_1 = require("../../shared/search-filter.pipe");
 var MainModule = /** @class */ (function () {
     function MainModule() {
     }
@@ -38,7 +39,8 @@ var MainModule = /** @class */ (function () {
                 contacts_component_1.ContactsComponent,
                 about_us_component_1.AboutUsComponent,
                 main_component_1.MainComponent,
-                card_component_1.CardComponent
+                card_component_1.CardComponent,
+                search_filter_pipe_1.SearchFilterPipe
             ],
             imports: [
                 common_1.CommonModule,

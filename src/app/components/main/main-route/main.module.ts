@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from '../catalog/card/card.component';
 import { MatSelectModule} from '@angular/material/select';
+import { SearchFilterPipe } from '../../shared/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatSelectModule} from '@angular/material/select';
     ContactsComponent,
     AboutUsComponent,
     MainComponent,
-    CardComponent
+    CardComponent,
+    SearchFilterPipe
   ],
   imports: [
     CommonModule,

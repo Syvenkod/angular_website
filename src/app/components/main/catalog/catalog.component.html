@@ -4,7 +4,8 @@
 </mat-card>
 </div>
 
-<div id="select-sort">
+<div id="sort-filter">
+<div class="select-sort">
   <mat-form-field appearance="fill">
    <mat-label>Sort by Price</mat-label>
    <mat-select [(value)]="selected">
@@ -14,9 +15,15 @@
    </mat-select>
   </mat-form-field>
 </div>
-
+<div class="filter">
+ <mat-form-field appearance="fill">
+<mat-label>Filter</mat-label>
+<input matInput type="text" [(ngModel)]="currentValue">
+</mat-form-field>
+</div>
+</div>
 <div id="catalog">
-<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page }" class="product">
+<mat-card *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page } | searchFilter: currentValue"  class="product">
   <app-card
   image = "{{product.image}}"
   title = "{{product.title}}"

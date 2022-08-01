@@ -20,7 +20,7 @@ interface Product{
 export class CatalogComponent implements OnInit, Product, AfterContentChecked {
 
   constructor(private getDataService: GetDataService) {}
-   products:any;
+   products: any | undefined;
    category:string;
    categories:any;
    description: string;
@@ -30,6 +30,7 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
    title: string;
    page: number = 1;
    selected ='';
+   currentValue: any;
 
 
   ngOnInit(): void {
