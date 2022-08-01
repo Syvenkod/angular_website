@@ -53,10 +53,7 @@ export class AdminComponent implements OnInit, AfterContentChecked{
     this.getDataService.getCartData().subscribe(res => {
       this.cardSource = Object.values(res);
       this.dataSource = new MatTableDataSource(Object.values(res));
-      console.log(this.dataSource);
       console.log(this.cardSource);
-
-
 
      this.dataSource.filterPredicate = (data, filter) =>{
       if (this.fromDate && this.toDate) {
@@ -68,14 +65,13 @@ export class AdminComponent implements OnInit, AfterContentChecked{
 
     // for products
     this.getDataService.getProductData().subscribe(pro => {
-      this.product = Object.values(pro)
+      this.product = Object.values(pro);
       console.log(this.product);
-
     })
 
     // for users
     this.getDataService.getUserData().subscribe(us=> {
-      this.users = Object.values(us)
+      this.users = Object.values(us);
       console.log(this.users);
 
     })

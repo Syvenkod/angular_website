@@ -23,7 +23,6 @@ export class GetDataService {
         for (let key in crd){
         newDataArray.push(new Card (crd[key].id, crd[key].userId, crd[key].date, crd[key].products))
         }
-
         newDataArray.forEach(card=>{
           card.date = new Date(card.date)
         })

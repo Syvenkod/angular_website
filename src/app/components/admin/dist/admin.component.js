@@ -44,7 +44,6 @@ var AdminComponent = /** @class */ (function () {
         this.getDataService.getCartData().subscribe(function (res) {
             _this.cardSource = Object.values(res);
             _this.dataSource = new table_1.MatTableDataSource(Object.values(res));
-            console.log(_this.dataSource);
             console.log(_this.cardSource);
             _this.dataSource.filterPredicate = function (data, filter) {
                 if (_this.fromDate && _this.toDate) {
