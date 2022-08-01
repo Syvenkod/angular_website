@@ -14,26 +14,6 @@ export class GetDataService {
     return this.http.get('https://fakestoreapi.com/products')
   }
 
-  getPriceDec(){
-    return this.http.get('https://fakestoreapi.com/products')
-    .pipe(
-      map((dec: any[]) =>{
-        dec.sort((a,b) => (b.price - a.price))
-        return dec;
-      })
-    )
-  }
-
-  getPriceInc(){
-    return this.http.get('https://fakestoreapi.com/products')
-    .pipe(
-      map((inc: any[]) =>{
-        inc.sort((a,b) => (a.price - b.price))
-        return inc;
-      })
-    )
-  }
-
   // Cart
   getCartData(){
     return this.http.get('https://fakestoreapi.com/carts')

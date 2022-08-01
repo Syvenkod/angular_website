@@ -21,9 +21,6 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
 
   constructor(private getDataService: GetDataService) {}
    products:any;
-   productsNotSort: any;
-   productsSortInc: any;
-   productsSortDec: any;
    category:string;
    categories:any;
    description: string;
@@ -42,12 +39,23 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
     this.getDataService.getCategoriesData().subscribe(ct => {
       this.categories = ct;});
   }
-  
+
   showCategory(category){
     this.getDataService.getCategoryData(category).subscribe(categ => {
       this.products = categ;
     })
   }
+
+  getPriceInc(){
+    this.products.sort((a,b) => (a.price - b.price))
+    return this.products;
+  }
+
+  getPriceDec(){
+    this.products.sort((a,b) => (b.price - a.price))
+    return this.products;
+  }
+
 
   ngAfterContentChecked(): void {
     switch (this.selected){
@@ -56,14 +64,12 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
           this.products = res;});
         break;
           case 'Sort by increase':
-            this.getDataService.getPriceInc().subscribe(inc => {
-              this.products = inc;});
+            this.getPriceInc();
            break;
             case 'Sort by decrease':
-              this.getDataService.getPriceDec().subscribe(dec => {
-                this.productsSortDec = dec;});
+              this.getPriceDec();
               break;
-    } 
+    }
   }
 
 }

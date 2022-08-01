@@ -30,6 +30,14 @@ var CatalogComponent = /** @class */ (function () {
             _this.products = categ;
         });
     };
+    CatalogComponent.prototype.getPriceInc = function () {
+        this.products.sort(function (a, b) { return (a.price - b.price); });
+        return this.products;
+    };
+    CatalogComponent.prototype.getPriceDec = function () {
+        this.products.sort(function (a, b) { return (b.price - a.price); });
+        return this.products;
+    };
     CatalogComponent.prototype.ngAfterContentChecked = function () {
         var _this = this;
         switch (this.selected) {
@@ -39,14 +47,10 @@ var CatalogComponent = /** @class */ (function () {
                 });
                 break;
             case 'Sort by increase':
-                this.getDataService.getPriceInc().subscribe(function (inc) {
-                    _this.products = inc;
-                });
+                this.getPriceInc();
                 break;
             case 'Sort by decrease':
-                this.getDataService.getPriceDec().subscribe(function (dec) {
-                    _this.productsSortDec = dec;
-                });
+                this.getPriceDec();
                 break;
         }
     };

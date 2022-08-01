@@ -18,20 +18,6 @@ var GetDataService = /** @class */ (function () {
     GetDataService.prototype.getProductData = function () {
         return this.http.get('https://fakestoreapi.com/products');
     };
-    GetDataService.prototype.getPriceDec = function () {
-        return this.http.get('https://fakestoreapi.com/products')
-            .pipe(operators_1.map(function (dec) {
-            dec.sort(function (a, b) { return (b.price - a.price); });
-            return dec;
-        }));
-    };
-    GetDataService.prototype.getPriceInc = function () {
-        return this.http.get('https://fakestoreapi.com/products')
-            .pipe(operators_1.map(function (inc) {
-            inc.sort(function (a, b) { return (a.price - b.price); });
-            return inc;
-        }));
-    };
     // Cart
     GetDataService.prototype.getCartData = function () {
         return this.http.get('https://fakestoreapi.com/carts')
