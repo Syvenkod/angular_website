@@ -12,24 +12,16 @@ var CatalogComponent = /** @class */ (function () {
     function CatalogComponent(getDataService) {
         this.getDataService = getDataService;
         this.page = 1;
-        this.selected = 'None';
+        this.selected = '';
     }
     CatalogComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.getDataService.getProductData().subscribe(function (res) {
-            _this.products = _this.productsNotSort = res;
+            _this.products = res;
             console.log(_this.products);
         });
         this.getDataService.getCategoriesData().subscribe(function (ct) {
             _this.categories = ct;
-        });
-        this.getDataService.getPriceInc().subscribe(function (inc) {
-            _this.productsSortInc = inc;
-            console.log(_this.productsSortInc);
-        });
-        this.getDataService.getPriceDec().subscribe(function (dec) {
-            _this.productsSortDec = dec;
-            console.log(_this.productsSortDec);
         });
     };
     CatalogComponent.prototype.showCategory = function (category) {
@@ -39,15 +31,22 @@ var CatalogComponent = /** @class */ (function () {
         });
     };
     CatalogComponent.prototype.ngAfterContentChecked = function () {
+        var _this = this;
         switch (this.selected) {
             case 'None':
-                this.products = this.productsNotSort;
+                this.getDataService.getProductData().subscribe(function (res) {
+                    _this.products = res;
+                });
                 break;
             case 'Sort by increase':
-                this.products = this.productsSortInc;
+                this.getDataService.getPriceInc().subscribe(function (inc) {
+                    _this.products = inc;
+                });
                 break;
             case 'Sort by decrease':
-                this.products = this.productsSortDec;
+                this.getDataService.getPriceDec().subscribe(function (dec) {
+                    _this.productsSortDec = dec;
+                });
                 break;
         }
     };
