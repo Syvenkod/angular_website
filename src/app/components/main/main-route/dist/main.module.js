@@ -26,6 +26,7 @@ var main_component_1 = require("../main.component");
 var common_1 = require("@angular/common");
 var card_1 = require("@angular/material/card");
 var card_component_1 = require("../catalog/card/card.component");
+var select_1 = require("@angular/material/select");
 var MainModule = /** @class */ (function () {
     function MainModule() {
     }
@@ -50,7 +51,8 @@ var MainModule = /** @class */ (function () {
                 forms_2.ReactiveFormsModule,
                 form_field_1.MatFormFieldModule,
                 input_1.MatInputModule,
-                button_1.MatButtonModule
+                button_1.MatButtonModule,
+                select_1.MatSelectModule,
             ],
             providers: [get_data_service_1.GetDataService]
         })

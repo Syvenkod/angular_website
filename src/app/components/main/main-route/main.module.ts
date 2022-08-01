@@ -18,7 +18,7 @@ import { MainComponent } from '../main.component';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from '../catalog/card/card.component';
-
+import { MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { CardComponent } from '../catalog/card/card.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule,
   ],
 
   providers: [GetDataService],

@@ -41,7 +41,7 @@ var AdminComponent = /** @class */ (function () {
     AdminComponent.prototype.ngOnInit = function () {
         var _this = this;
         // for card
-        this.getDataService.getCardData().subscribe(function (res) {
+        this.getDataService.getCartData().subscribe(function (res) {
             _this.cardSource = Object.values(res);
             _this.dataSource = new table_1.MatTableDataSource(Object.values(res));
             console.log(_this.dataSource);

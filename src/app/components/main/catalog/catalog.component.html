@@ -4,6 +4,17 @@
 </mat-card>
 </div>
 
+<div id="select-sort">
+  <mat-form-field appearance="fill">
+   <mat-label>Sort by Price</mat-label> 
+   <mat-select [(value)]="selected">
+    <mat-option value="None">None</mat-option>
+    <mat-option value="Sort by increase">Sort by increase</mat-option>
+    <mat-option value="Sort by decrease">Sort by decrease</mat-option>
+   </mat-select>
+  </mat-form-field>
+</div>
+
 <div id="catalog">
 <mat-card *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page }" class="product">
   <app-card

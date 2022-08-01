@@ -2,19 +2,40 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Card } from './card';
 import { map } from 'rxjs/operators';
-import { DatePipe } from '@angular/common';
 
 @Injectable()
 export class GetDataService {
 
-  constructor(private http: HttpClient, public datepipe: DatePipe) { }
+  constructor(private http: HttpClient) { }
 
+  // Products
 
   getProductData(){
-   return this.http.get('https://fakestoreapi.com/products')
+    return this.http.get('https://fakestoreapi.com/products')
   }
 
-  getCardData(){
+  getPriceDec(){
+    return this.http.get('https://fakestoreapi.com/products')
+    .pipe(
+      map((dec: any[]) =>{
+        dec.sort((a,b) => (b.price - a.price))
+        return dec;
+      })
+    )
+  }
+
+  getPriceInc(){
+    return this.http.get('https://fakestoreapi.com/products')
+    .pipe(
+      map((inc: any[]) =>{
+        inc.sort((a,b) => (a.price - b.price))
+        return inc;
+      })
+    )
+  }
+
+  // Cart
+  getCartData(){
     return this.http.get('https://fakestoreapi.com/carts')
     .pipe(
       map(crd =>{
@@ -31,10 +52,11 @@ export class GetDataService {
     )
   }
 
+// Users
   getUserData(){
     return this.http.get('https://fakestoreapi.com/users')
   }
-
+// Categories
   getCategoriesData(){
     return this.http.get('https://fakestoreapi.com/products/categories')
   }

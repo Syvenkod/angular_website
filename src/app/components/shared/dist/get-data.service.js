@@ -11,14 +11,29 @@ var core_1 = require("@angular/core");
 var card_1 = require("./card");
 var operators_1 = require("rxjs/operators");
 var GetDataService = /** @class */ (function () {
-    function GetDataService(http, datepipe) {
+    function GetDataService(http) {
         this.http = http;
-        this.datepipe = datepipe;
     }
+    // Products
     GetDataService.prototype.getProductData = function () {
         return this.http.get('https://fakestoreapi.com/products');
     };
-    GetDataService.prototype.getCardData = function () {
+    GetDataService.prototype.getPriceDec = function () {
+        return this.http.get('https://fakestoreapi.com/products')
+            .pipe(operators_1.map(function (dec) {
+            dec.sort(function (a, b) { return (b.price - a.price); });
+            return dec;
+        }));
+    };
+    GetDataService.prototype.getPriceInc = function () {
+        return this.http.get('https://fakestoreapi.com/products')
+            .pipe(operators_1.map(function (inc) {
+            inc.sort(function (a, b) { return (a.price - b.price); });
+            return inc;
+        }));
+    };
+    // Cart
+    GetDataService.prototype.getCartData = function () {
         return this.http.get('https://fakestoreapi.com/carts')
             .pipe(operators_1.map(function (crd) {
             var newDataArray = [];
@@ -31,9 +46,11 @@ var GetDataService = /** @class */ (function () {
             return newDataArray;
         }));
     };
+    // Users
     GetDataService.prototype.getUserData = function () {
         return this.http.get('https://fakestoreapi.com/users');
     };
+    // Categories
     GetDataService.prototype.getCategoriesData = function () {
         return this.http.get('https://fakestoreapi.com/products/categories');
     };

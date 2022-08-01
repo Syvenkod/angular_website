@@ -50,7 +50,7 @@ export class AdminComponent implements OnInit, AfterContentChecked{
 
   ngOnInit(): void {
     // for card
-    this.getDataService.getCardData().subscribe(res => {
+    this.getDataService.getCartData().subscribe(res => {
       this.cardSource = Object.values(res);
       this.dataSource = new MatTableDataSource(Object.values(res));
       console.log(this.dataSource);
