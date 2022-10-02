@@ -15,6 +15,8 @@ var page404_component_1 = require("./components/page404/page404.component");
 var main_module_1 = require("./components/main/main-route/main.module");
 var footer_component_1 = require("./components/footer/footer.component");
 var common_1 = require("@angular/common");
+var core_2 = require("@angular/material/core");
+var icon_1 = require("@angular/material/icon");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -29,6 +31,8 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
                 main_module_1.MainModule,
+                icon_1.MatIconModule,
+                core_2.MatCommonModule
             ],
             providers: [common_1.DatePipe],
             bootstrap: [app_component_1.AppComponent]

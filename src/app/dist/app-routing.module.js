@@ -9,7 +9,7 @@ exports.__esModule = true;
 exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var basket_component_1 = require("./components/main/basket/basket.component");
+var cart_component_1 = require("./components/main/cart/cart.component");
 var catalog_component_1 = require("./components/main/catalog/catalog.component");
 var contacts_component_1 = require("./components/main/contacts/contacts.component");
 var main_component_1 = require("./components/main/main.component");
@@ -18,7 +18,7 @@ var routes = [
     { path: '', component: main_component_1.MainComponent, pathMatch: 'full' },
     { path: 'main', component: main_component_1.MainComponent },
     { path: 'catalog', component: catalog_component_1.CatalogComponent },
-    { path: 'basket', component: basket_component_1.BasketComponent },
+    { path: 'cart', component: cart_component_1.CartComponent },
     { path: 'admin', loadChildren: function () { return Promise.resolve().then(function () { return require("./components/admin/admin.module"); }).then(function (contacts) { return contacts.AdminModule; }); } },
     { path: 'contacts', component: contacts_component_1.ContactsComponent },
     { path: '**', component: page404_component_1.Page404Component },

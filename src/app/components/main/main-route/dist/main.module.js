@@ -11,7 +11,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var get_data_service_1 = require("../../shared/get-data.service");
 var catalog_component_1 = require("../catalog/catalog.component");
-var basket_component_1 = require("../basket/basket.component");
+var cart_component_1 = require("../cart/cart.component");
 var contacts_component_1 = require("../contacts/contacts.component");
 var ngx_owl_carousel_o_1 = require("ngx-owl-carousel-o");
 var ngx_pagination_1 = require("ngx-pagination");
@@ -27,6 +27,7 @@ var common_1 = require("@angular/common");
 var card_1 = require("@angular/material/card");
 var card_component_1 = require("../catalog/card/card.component");
 var select_1 = require("@angular/material/select");
+var icon_1 = require("@angular/material/icon");
 var search_filter_pipe_1 = require("../../shared/search-filter.pipe");
 var MainModule = /** @class */ (function () {
     function MainModule() {
@@ -35,7 +36,7 @@ var MainModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 catalog_component_1.CatalogComponent,
-                basket_component_1.BasketComponent,
+                cart_component_1.CartComponent,
                 contacts_component_1.ContactsComponent,
                 about_us_component_1.AboutUsComponent,
                 main_component_1.MainComponent,
@@ -55,6 +56,7 @@ var MainModule = /** @class */ (function () {
                 input_1.MatInputModule,
                 button_1.MatButtonModule,
                 select_1.MatSelectModule,
+                icon_1.MatIconModule
             ],
             providers: [get_data_service_1.GetDataService]
         })

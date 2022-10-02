@@ -20,17 +20,19 @@ var MainComponent = /** @class */ (function () {
             pullDrag: false,
             dots: true,
             navSpeed: 2000,
-            navText: ['', '',],
+            navText: ['<', '>',],
             responsive: {
                 1024: {
                     items: 1
                 }
-            }
+            },
+            nav: true
         };
         this.slides = [
-            { id: '1', img: "assets/slides/slide_1.jpg" },
-            { id: '2', img: "assets/slides/slide_2.jpg" },
-            { id: '3', img: "assets/slides/slide_3.jpg" },
+            { id: '1', img: "assets/slides/slide-01.jpg" },
+            { id: '2', img: "assets/slides/slide-02.jpg" },
+            { id: '3', img: "assets/slides/slide-03.jpg" },
+            { id: '4', img: "assets/slides/slide-04.jpg" },
         ];
     }
     MainComponent.prototype.ngOnInit = function () {

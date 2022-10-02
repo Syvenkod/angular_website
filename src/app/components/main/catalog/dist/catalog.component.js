@@ -39,12 +39,10 @@ var CatalogComponent = /** @class */ (function () {
         return this.products;
     };
     CatalogComponent.prototype.ngAfterContentChecked = function () {
-        var _this = this;
         switch (this.selected) {
             case 'None':
-                this.getDataService.getProductData().subscribe(function (res) {
-                    _this.products = res;
-                });
+                // this.getDataService.getProductData().subscribe(res => {
+                //   this.products = res;});
                 break;
             case 'Sort by increase':
                 this.getPriceInc();

@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetDataService } from '../../shared/get-data.service';
 
 import { CatalogComponent } from '../catalog/catalog.component';
-import { BasketComponent } from '../basket/basket.component';
+import { CartComponent } from '../cart/cart.component';
 import { ContactsComponent } from '../contacts/contacts.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -19,12 +19,13 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from '../catalog/card/card.component';
 import { MatSelectModule} from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import { SearchFilterPipe } from '../../shared/search-filter.pipe';
 
 @NgModule({
   declarations: [
     CatalogComponent,
-    BasketComponent,
+    CartComponent,
     ContactsComponent,
     AboutUsComponent,
     MainComponent,
@@ -44,6 +45,7 @@ import { SearchFilterPipe } from '../../shared/search-filter.pipe';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatIconModule
   ],
 
   providers: [GetDataService],

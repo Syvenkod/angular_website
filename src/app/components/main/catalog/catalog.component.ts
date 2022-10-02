@@ -61,8 +61,8 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
   ngAfterContentChecked(): void {
     switch (this.selected){
       case 'None':
-        this.getDataService.getProductData().subscribe(res => {
-          this.products = res;});
+        // this.getDataService.getProductData().subscribe(res => {
+        //   this.products = res;});
         break;
           case 'Sort by increase':
             this.getPriceInc();
