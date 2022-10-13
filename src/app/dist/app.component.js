@@ -9,7 +9,9 @@ exports.__esModule = true;
 exports.AppComponent = void 0;
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(router, activatedRoute) {
+        this.router = router;
+        this.activatedRoute = activatedRoute;
         this.title = 'angular_website';
         this.LogoImage = 'assets/image/spilo-logo.png';
     }
@@ -17,7 +19,8 @@ var AppComponent = /** @class */ (function () {
         this.headerDesktop = document.querySelector('.menu-desktop');
     };
     AppComponent.prototype.ngAfterContentChecked = function () {
-        if (window.pageYOffset > 0) {
+        var url = this.activatedRoute.snapshot['_routerState'].url;
+        if (window.pageYOffset > 0 || url !== "/main") {
             this.headerDesktop.classList.add('fix-menu-desktop');
         }
         else {

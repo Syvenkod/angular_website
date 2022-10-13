@@ -15,7 +15,7 @@ var contacts_component_1 = require("./components/main/contacts/contacts.componen
 var main_component_1 = require("./components/main/main.component");
 var page404_component_1 = require("./components/page404/page404.component");
 var routes = [
-    { path: '', component: main_component_1.MainComponent, pathMatch: 'full' },
+    { path: '', redirectTo: 'main', pathMatch: 'full' },
     { path: 'main', component: main_component_1.MainComponent },
     { path: 'catalog', component: catalog_component_1.CatalogComponent },
     { path: 'cart', component: cart_component_1.CartComponent },

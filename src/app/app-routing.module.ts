@@ -8,7 +8,7 @@ import { MainComponent } from './components/main/main.component';
 import { Page404Component } from './components/page404/page404.component';
 
 const routes: Routes = [
-  {path: '', component: MainComponent, pathMatch: 'full'},
+  {path: '', redirectTo: 'main', pathMatch: 'full'},
   {path: 'main', component: MainComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'cart', component: CartComponent},
