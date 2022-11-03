@@ -1,0 +1,14 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+.carousel .carousel > * {
+  margin: 1rem;
+}
+
+.banner {
+  width: min(100% - 15px, 1200px);
+  position: absolute;
+  bottom: 50%;
+  left: 15%;
+}
