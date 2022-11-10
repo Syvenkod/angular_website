@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, AfterContentChecked} from '@angular/core';
-import { GetDataService } from '../../shared/get-data.service';
+import { GetDataService } from '../../service/get-data.service';
 
 interface Product{
   readonly category: string;

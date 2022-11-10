@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterContentChecked} from '@angular/core';
-import { GetDataService } from '../shared/get-data.service';
+import { GetDataService } from '../service/get-data.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { Card } from '../shared/card';
+import { Card } from '../models/card';
 import {FormGroup, FormControl} from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 
