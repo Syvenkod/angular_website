@@ -38,10 +38,11 @@ var MainComponent = /** @class */ (function () {
         ];
     }
     MainComponent.prototype.ngOnInit = function () {
-        // setInterval(()=>this.show = !this.show, 8000)
+        var _this = this;
+        setInterval(function () { return _this.show = !_this.show; }, 4000);
     };
     MainComponent.prototype.ngAfterContentChecked = function () {
-        this.show = !this.show;
+        // this.show = !this.show
     };
     MainComponent = __decorate([
         core_1.Component({

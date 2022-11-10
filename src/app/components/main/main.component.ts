@@ -61,7 +61,7 @@ export class MainComponent implements OnInit, AfterContentChecked {
   show = true;
 
   ngOnInit(): void {
-    // setInterval(()=>this.show = !this.show, 8000)
+    setInterval(()=>this.show = !this.show, 4000)
   }
 
   // Carousel
@@ -90,6 +90,6 @@ export class MainComponent implements OnInit, AfterContentChecked {
     ];
 
     ngAfterContentChecked(): void {
-      this.show = !this.show
+      // this.show = !this.show
     }
 }
