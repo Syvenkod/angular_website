@@ -10,7 +10,8 @@ exports.MainComponent = void 0;
 var core_1 = require("@angular/core");
 var animations_1 = require("@angular/animations");
 var MainComponent = /** @class */ (function () {
-    function MainComponent() {
+    function MainComponent(service) {
+        this.service = service;
         this.show = true;
         // Carousel
         this.customOptions = {
@@ -30,16 +31,13 @@ var MainComponent = /** @class */ (function () {
             },
             nav: false
         };
-        this.slides = [
-            { id: '1', img: "assets/slides/slide-01.jpg", title: "Women Collection 2018", desc: "NEW SEASON", btn: "Shop Now" },
-            { id: '2', img: "assets/slides/slide-02.jpg", title: "Men New-Season", desc: "Jackets & Coats", btn: "Shop Now" },
-            { id: '3', img: "assets/slides/slide-03.jpg", title: "Men Collection 2018", desc: "New arrivals", btn: "Shop Now" },
-            { id: '4', img: "assets/slides/slide-04.jpg", title: "Women Collection 2018", desc: "New arrivals", btn: "Shop Now" },
-        ];
     }
     MainComponent.prototype.ngOnInit = function () {
         var _this = this;
         setInterval(function () { return _this.show = !_this.show; }, 4000);
+        this.service.getSlides().subscribe(function (res) {
+            _this.slides = res;
+        });
     };
     MainComponent.prototype.ngAfterContentChecked = function () {
         // this.show = !this.show

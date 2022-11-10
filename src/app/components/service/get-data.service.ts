@@ -1,8 +1,9 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Card } from '../models/card';
+import { Slide } from '../models/slide'
 import { catchError, map } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class GetDataService {
@@ -39,6 +40,7 @@ export class GetDataService {
     return this.http.get('https://fakestoreapi.com/users')
     .pipe(catchError(this.handleError));
   }
+
 // Categories
   getCategoriesData(){
     return this.http.get('https://fakestoreapi.com/products/categories')
@@ -49,6 +51,13 @@ export class GetDataService {
     return this.http.get(`https://fakestoreapi.com/products/category/${category}`)
     .pipe(catchError(this.handleError));
   }
+
+// Slides
+  getSlides():Observable<Slide[]>{
+    return this.http.get<Slide[]>('../../assets/slides.json')
+    .pipe(catchError(this.handleError));
+  }
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

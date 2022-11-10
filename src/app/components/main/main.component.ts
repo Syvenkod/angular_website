@@ -10,6 +10,7 @@ import {
   animateChild,
   keyframes,
 } from '@angular/animations';
+import { GetDataService } from '../service/get-data.service';
 
 @Component({
   selector: 'app-main',
@@ -57,11 +58,16 @@ import {
 })
 export class MainComponent implements OnInit, AfterContentChecked {
 
-  constructor() { }
+  constructor(private service: GetDataService) { }
   show = true;
+  slides: any[];
 
   ngOnInit(): void {
     setInterval(()=>this.show = !this.show, 4000)
+
+    this.service.getSlides().subscribe(res =>{
+      this.slides = res;
+    })
   }
 
   // Carousel
@@ -82,12 +88,6 @@ export class MainComponent implements OnInit, AfterContentChecked {
     },
     nav: false
   }
-    slides = [
-      {id: '1', img: "assets/slides/slide-01.jpg", title: "Women Collection 2018", desc: "NEW SEASON", btn: "Shop Now"},
-      {id: '2', img: "assets/slides/slide-02.jpg", title: "Men New-Season", desc: "Jackets & Coats", btn: "Shop Now"},
-      {id: '3', img: "assets/slides/slide-03.jpg", title: "Men Collection 2018", desc: "New arrivals", btn: "Shop Now"},
-      {id: '4', img: "assets/slides/slide-04.jpg", title: "Women Collection 2018", desc: "New arrivals", btn: "Shop Now"},
-    ];
 
     ngAfterContentChecked(): void {
       // this.show = !this.show
