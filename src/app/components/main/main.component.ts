@@ -1,5 +1,4 @@
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { AfterContentChecked, Component, OnInit, ViewChild } from '@angular/core';
 import {
   trigger,
   style,
@@ -10,6 +9,8 @@ import {
   animateChild,
   keyframes,
 } from '@angular/animations';
+import { AnimationType } from "./carousel/carousel.animations";
+import { CarouselComponent } from "./carousel/carousel.component";
 import { GetDataService } from '../service/get-data.service';
 
 @Component({
@@ -57,39 +58,47 @@ import { GetDataService } from '../service/get-data.service';
   ]
 })
 export class MainComponent implements OnInit, AfterContentChecked {
-
+  @ViewChild(CarouselComponent) carousel: CarouselComponent;
   constructor(private service: GetDataService) { }
-  show = true;
+  // show = true;
   slides: any[];
 
-  ngOnInit(): void {
-    setInterval(()=>this.show = !this.show, 4000)
+  animationType = AnimationType.Scale;
 
+  animationTypes = [
+    {
+      name: "Scale",
+      value: AnimationType.Scale
+    },
+    {
+      name: "Fade",
+      value: AnimationType.Fade
+    },
+    {
+      name: "Flip",
+      value: AnimationType.Flip
+    },
+    {
+      name: "Jack In The Box",
+      value: AnimationType.JackInTheBox
+    }
+  ];
+
+  setAnimationType(type) {
+    this.animationType = type.value;
+    setTimeout(() => {
+      this.carousel.onNextClick();
+    });
+  }
+
+  ngOnInit(): void {
+    // setInterval(()=>this.show = !this.show, 4000)
     this.service.getSlides().subscribe(res =>{
       this.slides = res;
     })
   }
 
-  // Carousel
-  customOptions: OwlOptions = {
-    autoplay : true,
-    autoplayTimeout: 8000,
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: true,
-    navSpeed: 2000,
-    navText: ['', '',],
-    responsive: {
-      1024: {
-        items: 1
-      }
-    },
-    nav: false
-  }
-
-    ngAfterContentChecked(): void {
+  ngAfterContentChecked(): void {
       // this.show = !this.show
     }
 }

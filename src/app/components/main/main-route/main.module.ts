@@ -5,7 +5,6 @@ import { GetDataService } from '../../service/get-data.service';
 import { CatalogComponent } from '../catalog/catalog.component';
 import { CartComponent } from '../cart/cart.component';
 import { ContactsComponent } from '../contacts/contacts.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from "@angular/forms";
@@ -18,6 +17,7 @@ import { MainComponent } from '../main.component';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from '../catalog/card/card.component';
+import { CarouselComponent } from '../carousel/carousel.component';
 import { MatSelectModule} from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchFilterPipe } from '../../shared/search-filter.pipe';
@@ -30,13 +30,13 @@ import { SearchFilterPipe } from '../../shared/search-filter.pipe';
     AboutUsComponent,
     MainComponent,
     CardComponent,
+    CarouselComponent,
     SearchFilterPipe
   ],
   imports: [
     CommonModule,
     NgxPaginationModule,
     HttpClientModule,
-    CarouselModule,
     MatCardModule,
     BrowserAnimationsModule,
     FormsModule,

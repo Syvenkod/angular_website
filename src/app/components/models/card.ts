@@ -1,9 +1,9 @@
 export class Card{
-   readonly id: number;
-   readonly userId: number;
-   readonly date: number;
-   readonly products: any [];
-    constructor (id:number, userId: number, date: number, products: any []){
+    constructor ( readonly id: number,
+        readonly userId: number,
+        readonly date: Date,
+        readonly products: any [])
+        {
         this.id = id;
         this.userId = userId;
         this.date = date;

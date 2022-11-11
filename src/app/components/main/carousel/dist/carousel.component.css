@@ -1,0 +1,56 @@
+:host {
+  flex: 1;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  object-fit: cover;
+}
+
+.control {
+  border: none;
+  background-color: transparent;
+  outline: 0;
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5em;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  user-select: none;
+  height: 100%;
+  opacity: 80%;
+}
+.control:hover, .control:focus {
+  opacity: 1;
+}
+.control.next {
+  right: 0;
+}
+.control.prev {
+  left: 0;
+}
+
+.arrow {
+  display: block;
+  border-left: 0.1em solid white;
+  border-bottom: 0.1em solid white;
+  width: 0.5em;
+  height: 0.5em;
+}
+.arrow.left {
+  transform: rotate(45deg);
+}
+.arrow.right {
+  transform: rotate(225deg);
+}

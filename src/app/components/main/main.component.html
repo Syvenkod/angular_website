@@ -1,5 +1,5 @@
-<div class="carousel">
-  <owl-carousel-o [options]="customOptions">
+<div class="carousel-container">
+  <!-- <owl-carousel-o [options]="customOptions">
     <ng-container *ngFor="let slide of slides" >
       <ng-template carouselSlide [id]="slide.id">
         <img [src]="slide.img" class="slide">
@@ -10,7 +10,18 @@
       </div>
       </ng-template>
     </ng-container>
-    </owl-carousel-o>
+    </owl-carousel-o> -->
+    <app-carousel [slides]="slides" [animationType]="animationType"></app-carousel>
+    <div class="animition-type-selector">
+      <div
+        *ngFor="let type of animationTypes"
+        class="button"
+        (click)="setAnimationType(type)"
+        [class.active]="animationType === type.value"
+      >
+        {{ type.name }}
+      </div>
+    </div>
   </div>
 <div class="container">
 <app-catalog></app-catalog>

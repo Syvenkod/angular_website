@@ -1,8 +1,8 @@
-.carousel {
-  position: relative;
-  overflow: hidden;
+.carousel-container {
+  display: block;
+  height: 100vh;
 }
-.carousel .carousel > * {
+.carousel-container .carousel-container > * {
   margin: 1rem;
 }
 

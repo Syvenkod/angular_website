@@ -9,32 +9,41 @@ exports.__esModule = true;
 exports.MainComponent = void 0;
 var core_1 = require("@angular/core");
 var animations_1 = require("@angular/animations");
+var carousel_animations_1 = require("./carousel/carousel.animations");
+var carousel_component_1 = require("./carousel/carousel.component");
 var MainComponent = /** @class */ (function () {
     function MainComponent(service) {
         this.service = service;
-        this.show = true;
-        // Carousel
-        this.customOptions = {
-            autoplay: true,
-            autoplayTimeout: 8000,
-            loop: true,
-            mouseDrag: false,
-            touchDrag: false,
-            pullDrag: false,
-            dots: true,
-            navSpeed: 2000,
-            navText: ['', '',],
-            responsive: {
-                1024: {
-                    items: 1
-                }
+        this.animationType = carousel_animations_1.AnimationType.Scale;
+        this.animationTypes = [
+            {
+                name: "Scale",
+                value: carousel_animations_1.AnimationType.Scale
             },
-            nav: false
-        };
+            {
+                name: "Fade",
+                value: carousel_animations_1.AnimationType.Fade
+            },
+            {
+                name: "Flip",
+                value: carousel_animations_1.AnimationType.Flip
+            },
+            {
+                name: "Jack In The Box",
+                value: carousel_animations_1.AnimationType.JackInTheBox
+            }
+        ];
     }
+    MainComponent.prototype.setAnimationType = function (type) {
+        var _this = this;
+        this.animationType = type.value;
+        setTimeout(function () {
+            _this.carousel.onNextClick();
+        });
+    };
     MainComponent.prototype.ngOnInit = function () {
         var _this = this;
-        setInterval(function () { return _this.show = !_this.show; }, 4000);
+        // setInterval(()=>this.show = !this.show, 4000)
         this.service.getSlides().subscribe(function (res) {
             _this.slides = res;
         });
@@ -42,6 +51,9 @@ var MainComponent = /** @class */ (function () {
     MainComponent.prototype.ngAfterContentChecked = function () {
         // this.show = !this.show
     };
+    __decorate([
+        core_1.ViewChild(carousel_component_1.CarouselComponent)
+    ], MainComponent.prototype, "carousel");
     MainComponent = __decorate([
         core_1.Component({
             selector: 'app-main',

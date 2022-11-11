@@ -18,8 +18,8 @@ export class GetDataService {
   }
 
   // Cart
-  getCartData(){
-    return this.http.get('https://fakestoreapi.com/carts')
+  getCartData():Observable<Card[]>{
+    return this.http.get<Card[]>('https://fakestoreapi.com/carts')
     .pipe(
       map(crd =>{
         let newDataArray = [];
