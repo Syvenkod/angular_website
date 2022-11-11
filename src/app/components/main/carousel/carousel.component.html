@@ -6,6 +6,13 @@
         class="slide"
         [@slideAnimation]="animationType"
       />
+      <div class="banner" *ngIf="i === currentSlide">
+        <div [@slideAnimation]="animationTitle">{{slide.title}}</div>
+        <div class="description" [@slideAnimation]="animationDescription">{{slide.description}}</div>
+        <div class="slide-button" >
+        <button mat-button color="primary" [@slideAnimation]="animationButton">{{slide.button}}</button>
+        </div>
+      </div>
     </ng-container>
 
     <!-- controls -->

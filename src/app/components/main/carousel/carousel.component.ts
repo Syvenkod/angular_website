@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Slide } from "../../models/slide";
 import { trigger, transition, useAnimation } from "@angular/animations";
 import {
   AnimationType,
@@ -12,6 +11,7 @@ import {
   jackIn,
   jackOut
 } from "./carousel.animations";
+import { GetDataService } from '../../service/get-data.service';
 
 @Component({
   selector: 'app-carousel',
@@ -21,61 +21,65 @@ import {
     trigger("slideAnimation", [
       /* scale */
       transition("void => scale", [
-        useAnimation(scaleIn, { params: { time: "500ms" } })
+        useAnimation(scaleIn, { params: { time: "1500ms" } })
       ]),
       transition("scale => void", [
-        useAnimation(scaleOut, { params: { time: "500ms" } })
+        useAnimation(scaleOut, { params: { time: "1500ms" } })
       ]),
 
       /* fade */
       transition("void => fade", [
-        useAnimation(fadeIn, { params: { time: "500ms" } })
+        useAnimation(fadeIn, { params: { time: "1000ms" } })
       ]),
       transition("fade => void", [
-        useAnimation(fadeOut, { params: { time: "500ms" } })
+        useAnimation(fadeOut, { params: { time: "1000ms" } })
       ]),
 
       /* flip */
       transition("void => flip", [
-        useAnimation(flipIn, { params: { time: "500ms" } })
+        useAnimation(flipIn, { params: { time: "1500ms" } })
       ]),
       transition("flip => void", [
-        useAnimation(flipOut, { params: { time: "500ms" } })
+        useAnimation(flipOut, { params: { time: "1500ms" } })
       ]),
 
       /* JackInTheBox */
       transition("void => jackInTheBox", [
-        useAnimation(jackIn, { params: { time: "700ms" } })
+        useAnimation(jackIn, { params: { time: "2000ms" } })
       ]),
       transition("jackInTheBox => void", [
-        useAnimation(jackOut, { params: { time: "700ms" } })
+        useAnimation(jackOut, { params: { time: "2000ms" } })
       ])
     ])
   ]
 })
 export class CarouselComponent implements OnInit {
 
-  @Input() slides: Slide[];
-  @Input() animationType = AnimationType.Scale;
-
+  slides: any[] | undefined;
+  animationType = AnimationType.Fade;
+  animationTitle = AnimationType.Scale;
+  animationDescription = AnimationType.Flip;
+  animationButton = AnimationType.JackInTheBox;
   currentSlide = 0;
+  show = true;
 
-  constructor() { }
+  constructor(private service: GetDataService) { }
+
+  ngOnInit(): void {
+    this.service.getSlides().subscribe(res =>{
+      this.slides = res;
+    })
+    setInterval(() => this.onNextClick(), 8000)
+  }
 
   onPreviousClick() {
     const previous = this.currentSlide - 1;
     this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;
-    console.log("previous clicked, new current slide is: ", this.currentSlide);
   }
 
   onNextClick() {
     const next = this.currentSlide + 1;
     this.currentSlide = next === this.slides.length ? 0 : next;
-    console.log("next clicked, new current slide is: ", this.currentSlide);
-  }
-
-  ngOnInit(): void {
-    setInterval(() => this.onNextClick(), 8000)
   }
 
 }

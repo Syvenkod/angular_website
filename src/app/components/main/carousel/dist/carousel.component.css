@@ -54,3 +54,10 @@
 .arrow.right {
   transform: rotate(225deg);
 }
+
+.banner {
+  width: min(100% - 15px, 1200px);
+  position: absolute;
+  bottom: 50%;
+  left: 15%;
+}
