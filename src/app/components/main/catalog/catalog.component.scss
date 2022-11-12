@@ -14,24 +14,35 @@
 }
 .product{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-#category, #sort-filter, .category-name{
+#category, .sort-filter, .category-name{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    margin: 10px 20px;
+    font-size: 12px;
     .category-name{
-        width: 40%;
+        width: 45%;
         align-items: center;
+    }
+    .mat-form-field{
+        margin-left: 10px;
+    }
+    button{
+        background: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-family: Poppins-Regular;
+        font-size: 15px;
+        line-height: 1.2;
+            &:hover{
+            font-weight: bold;
+            color: #333;
+            border-bottom:1px solid #797979;
+            }
     }
 }
 
-mat-card:hover{
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-}
