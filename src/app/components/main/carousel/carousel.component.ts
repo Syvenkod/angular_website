@@ -37,10 +37,10 @@ import { GetDataService } from '../../service/get-data.service';
 
       /* flip */
       transition("void => flip", [
-        useAnimation(flipIn, { params: { time: "1500ms" } })
+        useAnimation(flipIn, { params: { time: "1000ms" } })
       ]),
       transition("flip => void", [
-        useAnimation(flipOut, { params: { time: "1500ms" } })
+        useAnimation(flipOut, { params: { time: "1000ms" } })
       ]),
 
       /* JackInTheBox */

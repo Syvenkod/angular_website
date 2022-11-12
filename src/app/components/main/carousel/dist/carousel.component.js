@@ -58,10 +58,10 @@ var CarouselComponent = /** @class */ (function () {
                     ]),
                     /* flip */
                     animations_1.transition("void => flip", [
-                        animations_1.useAnimation(carousel_animations_1.flipIn, { params: { time: "1500ms" } })
+                        animations_1.useAnimation(carousel_animations_1.flipIn, { params: { time: "1000ms" } })
                     ]),
                     animations_1.transition("flip => void", [
-                        animations_1.useAnimation(carousel_animations_1.flipOut, { params: { time: "1500ms" } })
+                        animations_1.useAnimation(carousel_animations_1.flipOut, { params: { time: "1000ms" } })
                     ]),
                     /* JackInTheBox */
                     animations_1.transition("void => jackInTheBox", [

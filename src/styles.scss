@@ -33,6 +33,56 @@ $angular_website-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($angular_website-theme);
 
+// =================================
+// Fonts
+// =================================
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../src/assets/fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Light;
+  src: url('../src/assets/fonts/Poppins/Poppins-Light.ttf');
+}
+
+@font-face {
+  font-family: Poppins-ExtraLight;
+  src: url('../src/assets/fonts/Poppins/Poppins-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../src/assets/fonts/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Italic;
+  src: url('../src/assets/fonts/Poppins/Poppins-Italic.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../src/assets/fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('../src/assets/fonts/Poppins/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: PlayfairDisplay-Regular;
+  src: url('../src/assets/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf');
+}
+
+@font-face {
+  font-family: PlayfairDisplay-Bold;
+  src: url('../src/assets/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf');
+}
+
+// =======================================================================
+
 html, body { height: 100%; scroll-behavior: smooth;}
 body { margin: auto; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

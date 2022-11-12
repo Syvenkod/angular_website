@@ -63,10 +63,22 @@
   bottom: 50%;
   left: 15%;
 }
+.banner .title {
+  font-family: Poppins-Regular;
+  font-size: 28px;
+  line-height: 1.2857;
+}
+.banner .description {
+  font-family: PlayfairDisplay-Bold;
+  font-size: 60px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
 .banner button {
-  font-size: xx-large;
-  border-radius: 10px;
+  font-size: x-large;
+  border-radius: 50px;
   background: lightgrey;
   color: white;
   height: 50px;
+  margin: 1%;
 }

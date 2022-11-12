@@ -7,7 +7,7 @@
         [@slideAnimation]="animationType"
       />
       <div class="banner" *ngIf="i === currentSlide">
-        <div [@slideAnimation]="animationTitle">{{slide.title}}</div>
+        <div class="title" [@slideAnimation]="animationTitle">{{slide.title}}</div>
         <div class="description" [@slideAnimation]="animationDescription">{{slide.description}}</div>
         <div class="slide-button" >
         <button mat-button color="primary" [@slideAnimation]="animationButton">{{slide.button}}</button>

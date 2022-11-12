@@ -2,7 +2,7 @@
   padding-top: 75px;
 }
 
-#catalog, #category {
+#catalog {
   display: grid;
   grid-template-columns: repeat(4, 2.5fr);
   gap: 50px 25px;
@@ -15,16 +15,20 @@
 
 .product {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-#sort-filter {
+#category, #sort-filter, .category-name {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0px 20px;
+  margin: 10px 20px;
+}
+#category .category-name, #sort-filter .category-name, .category-name .category-name {
+  width: 40%;
+  align-items: center;
 }
 
 mat-card:hover {
