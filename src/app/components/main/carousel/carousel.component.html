@@ -10,7 +10,10 @@
         <div class="title" [@slideAnimation]="animationTitle">{{slide.title}}</div>
         <div class="description" [@slideAnimation]="animationDescription">{{slide.description}}</div>
         <div class="slide-button" >
-        <button mat-button color="primary" [@slideAnimation]="animationButton">{{slide.button}}</button>
+        <a type="button" mat-button color="primary"
+        [@slideAnimation]="animationButton"
+        href = "/catalog"
+        >{{slide.button}}</a>
         </div>
       </div>
     </ng-container>
