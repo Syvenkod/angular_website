@@ -60,7 +60,7 @@
 .banner {
   width: min(100% - 15px, 1200px);
   position: absolute;
-  bottom: 50%;
+  bottom: 40%;
   left: 15%;
 }
 .banner .title {
@@ -74,11 +74,11 @@
   line-height: 1.1;
   text-transform: uppercase;
 }
-.banner button {
+.banner a {
   font-size: x-large;
   border-radius: 50px;
   background: lightgrey;
   color: white;
-  height: 50px;
+  height: 40px;
   margin: 1%;
 }

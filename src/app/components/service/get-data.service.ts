@@ -1,7 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Card } from '../models/card';
-import { Slide } from '../models/slide'
+import { Slide } from '../models/slide';
+import { User } from '../models/user';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
@@ -36,8 +37,8 @@ export class GetDataService {
   }
 
 // Users
-  getUserData(){
-    return this.http.get('https://fakestoreapi.com/users')
+  getUserData():Observable<User[]>{
+    return this.http.get<User[]>('https://fakestoreapi.com/users')
     .pipe(catchError(this.handleError));
   }
 

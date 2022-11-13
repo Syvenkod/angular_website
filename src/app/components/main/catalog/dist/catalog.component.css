@@ -15,24 +15,34 @@
 
 .product {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
-#category, #sort-filter, .category-name {
+#category, .sort-filter, .category-name {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin: 10px 20px;
+  font-size: 12px;
 }
-#category .category-name, #sort-filter .category-name, .category-name .category-name {
-  width: 40%;
+#category .category-name, .sort-filter .category-name, .category-name .category-name {
+  width: 45%;
   align-items: center;
 }
-
-mat-card:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
+#category .mat-form-field, .sort-filter .mat-form-field, .category-name .mat-form-field {
+  margin-left: 10px;
+}
+#category button, .sort-filter button, .category-name button {
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  line-height: 1.2;
+}
+#category button:hover, .sort-filter button:hover, .category-name button:hover {
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #797979;
 }

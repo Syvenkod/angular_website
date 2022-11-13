@@ -41,6 +41,12 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
       this.categories = ct;});
   }
 
+  getAllProducts(){
+    this.getDataService.getProductData().subscribe(res => {
+      this.products = res;
+    })
+  }
+
   showCategory(category){
     this.getDataService.getCategoryData(category).subscribe(categ => {
       this.products = categ;
@@ -61,8 +67,7 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
   ngAfterContentChecked(): void {
     switch (this.selected){
       case 'None':
-        // this.getDataService.getProductData().subscribe(res => {
-        //   this.products = res;});
+        this.getAllProducts();
         break;
           case 'Sort by increase':
             this.getPriceInc();

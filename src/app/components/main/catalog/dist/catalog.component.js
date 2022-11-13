@@ -24,6 +24,12 @@ var CatalogComponent = /** @class */ (function () {
             _this.categories = ct;
         });
     };
+    CatalogComponent.prototype.getAllProducts = function () {
+        var _this = this;
+        this.getDataService.getProductData().subscribe(function (res) {
+            _this.products = res;
+        });
+    };
     CatalogComponent.prototype.showCategory = function (category) {
         var _this = this;
         this.getDataService.getCategoryData(category).subscribe(function (categ) {
@@ -41,8 +47,7 @@ var CatalogComponent = /** @class */ (function () {
     CatalogComponent.prototype.ngAfterContentChecked = function () {
         switch (this.selected) {
             case 'None':
-                // this.getDataService.getProductData().subscribe(res => {
-                //   this.products = res;});
+                this.getAllProducts();
                 break;
             case 'Sort by increase':
                 this.getPriceInc();
