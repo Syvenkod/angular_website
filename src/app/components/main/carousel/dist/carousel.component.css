@@ -57,28 +57,33 @@
   transform: rotate(225deg);
 }
 
-.banner {
+.slide-banner {
   width: min(100% - 15px, 1200px);
   position: absolute;
   bottom: 40%;
   left: 15%;
 }
-.banner .title {
+.slide-banner .title {
   font-family: Poppins-Regular;
   font-size: 28px;
   line-height: 1.2857;
 }
-.banner .description {
+.slide-banner .description {
   font-family: PlayfairDisplay-Bold;
   font-size: 60px;
   line-height: 1.1;
   text-transform: uppercase;
 }
-.banner a {
+.slide-banner a {
+  font-family: Poppins-Regular;
   font-size: x-large;
   border-radius: 50px;
-  background: lightgrey;
-  color: white;
+  background: white;
+  color: #333;
   height: 40px;
   margin: 1%;
+}
+.slide-banner a:hover {
+  background: #333;
+  color: white;
 }

@@ -24,11 +24,12 @@ var button_1 = require("@angular/material/button");
 var main_component_1 = require("../main.component");
 var common_1 = require("@angular/common");
 var card_1 = require("@angular/material/card");
-var card_component_1 = require("../catalog/card/card.component");
 var carousel_component_1 = require("../carousel/carousel.component");
 var select_1 = require("@angular/material/select");
 var icon_1 = require("@angular/material/icon");
 var search_filter_pipe_1 = require("../../shared/search-filter.pipe");
+var divider_1 = require("@angular/material/divider");
+var banner_component_1 = require("../carousel/banner/banner.component");
 var MainModule = /** @class */ (function () {
     function MainModule() {
     }
@@ -40,8 +41,8 @@ var MainModule = /** @class */ (function () {
                 contacts_component_1.ContactsComponent,
                 about_us_component_1.AboutUsComponent,
                 main_component_1.MainComponent,
-                card_component_1.CardComponent,
                 carousel_component_1.CarouselComponent,
+                banner_component_1.BannerComponent,
                 search_filter_pipe_1.SearchFilterPipe
             ],
             imports: [
@@ -56,7 +57,8 @@ var MainModule = /** @class */ (function () {
                 input_1.MatInputModule,
                 button_1.MatButtonModule,
                 select_1.MatSelectModule,
-                icon_1.MatIconModule
+                icon_1.MatIconModule,
+                divider_1.MatDividerModule
             ],
             providers: [get_data_service_1.GetDataService]
         })

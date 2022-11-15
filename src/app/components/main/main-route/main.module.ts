@@ -16,11 +16,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MainComponent } from '../main.component';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { CardComponent } from '../catalog/card/card.component';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { MatSelectModule} from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchFilterPipe } from '../../shared/search-filter.pipe';
+import { MatDividerModule } from '@angular/material/divider'
+import { BannerComponent } from '../carousel/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,8 @@ import { SearchFilterPipe } from '../../shared/search-filter.pipe';
     ContactsComponent,
     AboutUsComponent,
     MainComponent,
-    CardComponent,
     CarouselComponent,
+    BannerComponent,
     SearchFilterPipe
   ],
   imports: [
@@ -45,7 +46,8 @@ import { SearchFilterPipe } from '../../shared/search-filter.pipe';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ],
 
   providers: [GetDataService],

@@ -6,7 +6,7 @@
         class="slide"
         [@slideAnimation]="animationType"
       />
-      <div class="banner" *ngIf="i === currentSlide">
+      <div class="slide-banner" *ngIf="i === currentSlide">
         <div class="title" [@slideAnimation]="animationTitle">{{slide.title}}</div>
         <div class="description" [@slideAnimation]="animationDescription">{{slide.description}}</div>
         <div class="slide-button" >
@@ -25,4 +25,5 @@
     <button class="control next" (click)="onNextClick()">
       <span class="arrow right"></span>
     </button>
-  </div>
+</div>
+

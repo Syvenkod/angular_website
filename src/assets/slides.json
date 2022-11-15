@@ -2,7 +2,7 @@
     {
         "id": 1,
         "img": "assets/slides/slide-01.jpg",
-        "title": "Women Collection 2018",
+        "title": "Women Collection 2022",
         "description": "NEW SEASON",
         "button": "Shop Now"
     },
@@ -16,14 +16,14 @@
     {
         "id": 3,
         "img": "assets/slides/slide-03.jpg",
-        "title": "Men Collection 2018",
+        "title": "Men Collection 2022",
         "description": "New arrivals",
         "button": "Shop Now"
     },
     {
         "id": 4,
         "img": "assets/slides/slide-04.jpg",
-        "title": "Women Collection 2018",
+        "title": "Women Collection 2022",
         "description": "New arrivals",
         "button": "Shop Now"
     }

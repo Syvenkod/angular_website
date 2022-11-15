@@ -29,15 +29,18 @@
 </div>
 </div>
 <div id="catalog">
-<div *ngFor="let product of products | searchFilter: currentValue | paginate: { itemsPerPage: 8, currentPage: page }"  class="product">
-  <app-card
-  image = "{{product.image}}"
-  title = "{{product.title}}"
-  price = "{{product.price}}"
-  ></app-card>
-<!-- <mat-card-actions align="end">
+<mat-card *ngFor="let product of products | searchFilter: currentValue | paginate: { itemsPerPage: 8, currentPage: page }"  class="product" >
+  <div>
+    <img mat-card-image src="{{product.image}}">
+    <mat-card-content>
+    <p>{{product.title}}</p>
+    <p>{{product.price | currency}} </p>
+  </mat-card-content>
+  </div>
+<!-- <mat-card-actions align="end" >
 <button id="buy" mat-stroked-button color="primary">buy</button>
 </mat-card-actions> -->
+</mat-card>
 </div>
 
 <div class="pagination">
