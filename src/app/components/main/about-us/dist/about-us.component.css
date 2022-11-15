@@ -1,6 +1,11 @@
 .about-us {
   height: 150px;
   text-align: center;
-  background-color: lightgrey;
   padding-top: 75px;
+}
+.about-us h2 {
+  font-family: Poppins-Bold;
+  font-size: 50px;
+  line-height: 1.1;
+  color: #fff;
 }
