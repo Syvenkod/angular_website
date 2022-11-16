@@ -6,12 +6,14 @@ import { CatalogComponent } from './components/main/catalog/catalog.component';
 import { ContactsComponent } from './components/main/contacts/contacts.component';
 import { MainComponent } from './components/main/main.component';
 import { Page404Component } from './components/page404/page404.component';
+import { AboutUsComponent } from './components/main/about-us/about-us.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'},
   {path: 'main', component: MainComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'about-us', component: AboutUsComponent},
   {path: 'admin', loadChildren: () => import("./components/admin/admin.module").then(contacts => contacts.AdminModule)},
   {path: 'contacts', component: ContactsComponent},
   {path: '**', component: Page404Component},

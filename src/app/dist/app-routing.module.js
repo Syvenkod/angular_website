@@ -14,11 +14,13 @@ var catalog_component_1 = require("./components/main/catalog/catalog.component")
 var contacts_component_1 = require("./components/main/contacts/contacts.component");
 var main_component_1 = require("./components/main/main.component");
 var page404_component_1 = require("./components/page404/page404.component");
+var about_us_component_1 = require("./components/main/about-us/about-us.component");
 var routes = [
     { path: '', redirectTo: 'main', pathMatch: 'full' },
     { path: 'main', component: main_component_1.MainComponent },
     { path: 'catalog', component: catalog_component_1.CatalogComponent },
     { path: 'cart', component: cart_component_1.CartComponent },
+    { path: 'about-us', component: about_us_component_1.AboutUsComponent },
     { path: 'admin', loadChildren: function () { return Promise.resolve().then(function () { return require("./components/admin/admin.module"); }).then(function (contacts) { return contacts.AdminModule; }); } },
     { path: 'contacts', component: contacts_component_1.ContactsComponent },
     { path: '**', component: page404_component_1.Page404Component },
