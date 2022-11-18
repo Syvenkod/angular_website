@@ -25,7 +25,7 @@ var CarouselComponent = /** @class */ (function () {
         this.service.getSlides().subscribe(function (res) {
             _this.slides = res;
         });
-        setInterval(function () { return _this.onNextClick(); }, 8000);
+        setInterval(function () { return _this.onNextClick(); }, 5000);
     };
     CarouselComponent.prototype.onPreviousClick = function () {
         var previous = this.currentSlide - 1;

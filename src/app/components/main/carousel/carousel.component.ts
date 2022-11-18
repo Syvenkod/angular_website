@@ -69,7 +69,7 @@ export class CarouselComponent implements OnInit {
     this.service.getSlides().subscribe(res =>{
       this.slides = res;
     })
-    setInterval(() => this.onNextClick(), 8000)
+    setInterval(() => this.onNextClick(), 5000)
   }
 
   onPreviousClick() {

@@ -1,11 +1,16 @@
 <div class="container">
 <div class="main-contacts">
-<div class="geo">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d162757.72582727906!2d30.392608576923177!3d50.4021702384454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1658256048917!5m2!1sru!2sua"
-width="600" height="450" style="border:5px solid rgb(221, 217, 217); border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+<div class="contact-header" style="background-image: url('../../../../assets/image/bg-02.jpg')">
+    <h2>
+        Contact
+    </h2>
+</div>
+
+<div class="contact-form">
 <div class="form">
-    <h2>Contact Us</h2>
+    <h3>
+        Send Us A Message
+    </h3>
     <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <mat-form-field appearance="fill">
             <mat-label>Name</mat-label><br>
@@ -34,5 +39,63 @@ width="600" height="450" style="border:5px solid rgb(221, 217, 217); border-radi
     </form>
     <br>
 </div>
+
+    <div class="contact">
+        <div>
+            <div class="">
+                <span class="">
+                    <span><mat-icon> location_on</mat-icon></span>
+                </span>
+
+                <div class="">
+                    <span class="">
+                        Address
+                    </span>
+
+                    <p class="">
+                        Spilo Store, Kyiv, Ukraine
+                    </p>
+                </div>
+            </div>
+
+            <div class="">
+                <span class="">
+                    <span><mat-icon>phone</mat-icon></span>
+                </span>
+
+                <div class="">
+                    <span class="">
+                        Lets Talk
+                    </span>
+
+                    <p class="">
+                        +38 067 123 45 67
+                    </p>
+                </div>
+            </div>
+
+            <div class="">
+                <span class="">
+                    <span><mat-icon> mail_outline</mat-icon></span>
+                </span>
+
+                <div class="">
+                    <span class="">
+                        Sale Support
+                    </span>
+
+                    <p class="">
+                        contact@example.com
+                    </p>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+
+<div class="geo">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d162757.72582727906!2d30.392608576923177!3d50.4021702384454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1658256048917!5m2!1sru!2sua"
+     height="250" style="border:1px solid rgb(221, 217, 217); border-radius: 10px; width:min(100% - 15px, 1380px)" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 </div>
 </div>
