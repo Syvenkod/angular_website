@@ -16,10 +16,71 @@
 }
 
 .contact-form{
-    width: 90%;
+    width: 100%;
     margin:20px auto;
     display:grid;
     grid-template-columns:repeat(2, 6fr);
-    border: 2px solid rgb(221, 217, 217);
+    border: 1px solid rgb(221, 217, 217);
+    h3{
+        font-family: Poppins-Regular;
+        font-size: 24px;
+        line-height: 1.5;
+        color: #333;
+        text-align: center;
+    }
 }
 
+.send-message{
+    display: flex;
+    flex-direction: column;
+    form{
+        mat-form-field, .send{
+        margin-left: 10%;
+        width: 80%;
+        }
+        .send{
+            font-family: Poppins-Medium;
+            font-size: 15px;
+            line-height: 1.466667;
+            text-transform: uppercase;
+            color: #222;
+            height: 46px;
+            background-color: #fff;
+            border-radius: 20px;
+
+            &:hover{
+                background-color: #222;
+                color:#fff;
+            }
+        }
+    }
+}
+
+.contact{
+    padding-top: 5%;
+    padding-left: 10%;
+    border-left: 1px solid rgb(221, 217, 217);
+    .contact-flex{
+        display: flex;
+        width: calc(100% - 60px);
+        padding-bottom: 40px;
+        span{
+            width: 60px;
+        }
+                h4{
+                    font-family: Poppins-Regular;
+                    font-size: 18px;
+                    line-height: 1.222222;
+                    color:#333;
+                    padding-top: 2px;
+                }
+                    p{
+                        font-family: Poppins-Regular;
+                        font-size: 15px;
+                        line-height: 1.666667;
+                        color: #888;
+                        max-width: 245px;
+                        padding-top: 18px;
+                    }
+    }
+}
