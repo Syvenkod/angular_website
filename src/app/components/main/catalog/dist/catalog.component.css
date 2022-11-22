@@ -33,7 +33,7 @@
   width: 45%;
   align-items: center;
 }
-#category .mat-form-field, .sort-filter .mat-form-field, .category-name .mat-form-field {
+#category .filter, .sort-filter .filter, .category-name .filter {
   margin-left: 10px;
 }
 #category button, .sort-filter button, .category-name button {
