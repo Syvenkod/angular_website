@@ -30,6 +30,7 @@ var icon_1 = require("@angular/material/icon");
 var search_filter_pipe_1 = require("../../shared/search-filter.pipe");
 var divider_1 = require("@angular/material/divider");
 var banner_component_1 = require("../carousel/banner/banner.component");
+var google_maps_1 = require("@angular/google-maps");
 var MainModule = /** @class */ (function () {
     function MainModule() {
     }
@@ -58,7 +59,8 @@ var MainModule = /** @class */ (function () {
                 button_1.MatButtonModule,
                 select_1.MatSelectModule,
                 icon_1.MatIconModule,
-                divider_1.MatDividerModule
+                divider_1.MatDividerModule,
+                google_maps_1.GoogleMapsModule
             ],
             providers: [get_data_service_1.GetDataService]
         })

@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SearchFilterPipe } from '../../shared/search-filter.pipe';
 import { MatDividerModule } from '@angular/material/divider'
 import { BannerComponent } from '../carousel/banner/banner.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { BannerComponent } from '../carousel/banner/banner.component';
     MatButtonModule,
     MatSelectModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    GoogleMapsModule
   ],
 
   providers: [GetDataService],
