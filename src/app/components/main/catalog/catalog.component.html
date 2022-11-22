@@ -31,15 +31,14 @@
 <div id="catalog">
 <mat-card *ngFor="let product of products | searchFilter: currentValue | paginate: { itemsPerPage: 8, currentPage: page }"  class="product" >
   <div>
-    <img mat-card-image src="{{product.image}}">
+    <img mat-card-xl-image src="{{product.image}}">
+    </div>
+  <div>
     <mat-card-content>
     <p>{{product.title}}</p>
     <p>{{product.price | currency}} </p>
   </mat-card-content>
   </div>
-<!-- <mat-card-actions align="end" >
-<button id="buy" mat-stroked-button color="primary">buy</button>
-</mat-card-actions> -->
 </mat-card>
 </div>
 
