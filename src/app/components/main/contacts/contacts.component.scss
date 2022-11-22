@@ -57,15 +57,16 @@
 }
 
 .contact{
-    padding-top: 5%;
     padding-left: 10%;
     border-left: 1px solid rgb(221, 217, 217);
     .contact-flex{
         display: flex;
-        width: calc(100% - 60px);
-        padding-bottom: 40px;
+        width: 100%;
+        padding-top: 4%;
+
         span{
             width: 60px;
+            padding-top: 4%;
         }
                 h4{
                     font-family: Poppins-Regular;
@@ -74,7 +75,7 @@
                     color:#333;
                     padding-top: 2px;
                 }
-                    p{
+                    .text{
                         font-family: Poppins-Regular;
                         font-size: 15px;
                         line-height: 1.666667;
