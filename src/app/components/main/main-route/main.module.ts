@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetDataService } from '../../service/get-data.service';
 
 import { CatalogComponent } from '../catalog/catalog.component';
-import { CartComponent } from '../cart/cart.component';
 import { ContactsComponent } from '../contacts/contacts.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,18 +21,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { SearchFilterPipe } from '../../shared/search-filter.pipe';
 import { MatDividerModule } from '@angular/material/divider'
 import { BannerComponent } from '../carousel/banner/banner.component';
+import { CardComponent } from '../catalog/card/card.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
     CatalogComponent,
-    CartComponent,
     ContactsComponent,
     AboutUsComponent,
     MainComponent,
     CarouselComponent,
     BannerComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    CardComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CartComponent } from './components/main/cart/cart.component';
 import { CatalogComponent } from './components/main/catalog/catalog.component';
 import { ContactsComponent } from './components/main/contacts/contacts.component';
 import { MainComponent } from './components/main/main.component';
@@ -12,9 +11,11 @@ const routes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'},
   {path: 'main', component: MainComponent},
   {path: 'catalog', component: CatalogComponent},
-  {path: 'cart', component: CartComponent},
+  {path: 'cart',
+        loadChildren: () => import("../app/components/cart/cart.module").then(cart => cart.CartModule)},
   {path: 'about-us', component: AboutUsComponent},
-  {path: 'admin', loadChildren: () => import("./components/admin/admin.module").then(contacts => contacts.AdminModule)},
+  {path: 'admin',
+        loadChildren: () => import("./components/admin/admin.module").then(admin => admin.AdminModule)},
   {path: 'contacts', component: ContactsComponent},
   {path: '**', component: Page404Component},
 ];

@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [
     AppComponent,
     Page404Component,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
