@@ -19,7 +19,7 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
 
    products: any | undefined;
    category:string;
-   categories:any;
+   categories:any|undefined;
    description: string;
    id:number;
    image: string;
@@ -27,8 +27,8 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
    title: string;
    page: number = 1;
    selected ='';
-   currentValue: any;
-   clickedProduct = new Set<Product>;
+   currentValue: any|undefined;
+   clickedProduct: any|undefined;
 
 
   ngOnInit(): void {
@@ -79,12 +79,14 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
     const dialogRef = this.dialog.open(CardComponent, {
        width: '80%',
+       height: 'auto',
        enterAnimationDuration,
        exitAnimationDuration,
-       data: this.clickedProduct,
+       data: this.clickedProduct = new Set<Product>,
        autoFocus: false
      });
      dialogRef.afterClosed().subscribe(result =>{
+      this.clickedProduct = {};
      })
    }
 

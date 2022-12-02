@@ -14,12 +14,12 @@
 }
 .card .content {
   display: grid;
-  padding: 2%;
+  padding: 3%;
   overflow: hidden;
 }
 .card .content .card-product {
   display: grid;
-  grid-template-columns: minmax(50px, 150px) 2fr 2fr;
+  grid-template-columns: minmax(50px, 100px) 2fr 2fr;
   gap: 20px;
 }
 .card .content .card-product img {
@@ -27,4 +27,19 @@
 }
 .card .content .card-product .show-pic img {
   width: 100%;
+}
+.card .content .card-product button {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  line-height: 1.466667;
+  color: #333;
+  background-color: #fff;
+  border-radius: 20px;
+  min-width: 139px;
+  height: 40px;
+}
+.card .content .card-product button:hover {
+  border-color: #222;
+  background-color: #222;
+  color: #fff;
 }
