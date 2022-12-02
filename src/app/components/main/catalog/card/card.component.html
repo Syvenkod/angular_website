@@ -1,1 +1,28 @@
-<p>card works!</p>
+<div class="card">
+<div class="header">
+<button class="close-button" mat-dialog-close>
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+</div>
+<div class="content">
+
+    <div *ngFor="let product of clickedProduct" class="card-product">
+        <div class="show-pic">
+            <img src="{{product.image}}">
+        </div>
+            <div>
+                <img src="{{product.image}}">
+            </div>
+                <div>
+                    <div>
+                        <h2>{{product.title}}</h2>
+                        <h3>{{product.price | currency}} </h3>
+                        <p>{{product.description}}</p>
+                    </div>
+                        <div>
+                            <button (click)="addToCart(product)">Add to Cart</button>
+                        </div>
+                </div>
+    </div>
+</div>
+</div>

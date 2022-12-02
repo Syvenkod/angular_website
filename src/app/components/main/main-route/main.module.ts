@@ -23,6 +23,7 @@ import { MatDividerModule } from '@angular/material/divider'
 import { BannerComponent } from '../carousel/banner/banner.component';
 import { CardComponent } from '../catalog/card/card.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     MatSelectModule,
     MatIconModule,
     MatDividerModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatDialogModule
   ],
 
   providers: [GetDataService],

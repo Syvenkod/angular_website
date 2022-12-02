@@ -32,7 +32,9 @@
 <mat-card *ngFor="let product of products | searchFilter: currentValue | paginate: { itemsPerPage: 8, currentPage: page }"  class="product" >
   <div class="block">
     <img mat-card-xl-image src="{{product.image}}">
-    <button class="trans-06">Quick View</button>
+    <button class="trans-06" (click)="openDialog('1000ms', '1000ms'); clickedProduct.add(product)">
+      Quick View
+      </button>
     </div>
   <div>
     <mat-card-content>

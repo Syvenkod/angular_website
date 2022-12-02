@@ -31,6 +31,7 @@ var divider_1 = require("@angular/material/divider");
 var banner_component_1 = require("../carousel/banner/banner.component");
 var card_component_1 = require("../catalog/card/card.component");
 var google_maps_1 = require("@angular/google-maps");
+var dialog_1 = require("@angular/material/dialog");
 var MainModule = /** @class */ (function () {
     function MainModule() {
     }
@@ -60,7 +61,8 @@ var MainModule = /** @class */ (function () {
                 select_1.MatSelectModule,
                 icon_1.MatIconModule,
                 divider_1.MatDividerModule,
-                google_maps_1.GoogleMapsModule
+                google_maps_1.GoogleMapsModule,
+                dialog_1.MatDialogModule
             ],
             providers: [get_data_service_1.GetDataService]
         })

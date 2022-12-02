@@ -1,14 +1,9 @@
+import { Product } from './../../models/product';
+import { CardComponent } from './card/card.component';
 import { ChangeDetectionStrategy, Component, OnInit, AfterContentChecked} from '@angular/core';
 import { GetDataService } from '../../service/get-data.service';
+import { MatDialog} from '@angular/material/dialog';
 
-interface Product{
-  readonly category: string;
-  readonly description: string;
-  readonly id:number;
-  readonly image: string;
-  readonly price: number;
-  readonly title: string;
-}
 
 @Component({
   selector: 'app-catalog',
@@ -19,7 +14,9 @@ interface Product{
 
 export class CatalogComponent implements OnInit, Product, AfterContentChecked {
 
-  constructor(private getDataService: GetDataService) {}
+  constructor(private getDataService: GetDataService,
+              public dialog: MatDialog) {}
+
    products: any | undefined;
    category:string;
    categories:any;
@@ -31,6 +28,7 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
    page: number = 1;
    selected ='';
    currentValue: any;
+   clickedProduct = new Set<Product>;
 
 
   ngOnInit(): void {
@@ -77,5 +75,17 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
               break;
     }
   }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
+    const dialogRef = this.dialog.open(CardComponent, {
+       width: '80%',
+       enterAnimationDuration,
+       exitAnimationDuration,
+       data: this.clickedProduct,
+       autoFocus: false
+     });
+     dialogRef.afterClosed().subscribe(result =>{
+     })
+   }
 
 }

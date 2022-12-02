@@ -13,7 +13,7 @@ export class AppComponent implements OnInit, AfterContentChecked {
 
   title = 'angular_website';
   LogoImage: string = 'assets/image/spilo-logo.png';
-  headerDesktop
+  headerDesktop: HTMLElement;
 
 
   ngOnInit(): void {

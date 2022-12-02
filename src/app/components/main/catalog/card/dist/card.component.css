@@ -1,0 +1,30 @@
+.card {
+  height: 100%;
+}
+.card .header .close-button {
+  float: right;
+  border-style: none;
+  background-color: transparent;
+}
+.card .header .close-button .close-icon {
+  transition: 1s ease-in-out;
+}
+.card .header .close-button .close-icon:hover {
+  transform: rotate(180deg);
+}
+.card .content {
+  display: grid;
+  padding: 2%;
+  overflow: hidden;
+}
+.card .content .card-product {
+  display: grid;
+  grid-template-columns: minmax(50px, 150px) 2fr 2fr;
+  gap: 20px;
+}
+.card .content .card-product img {
+  width: 100%;
+}
+.card .content .card-product .show-pic img {
+  width: 100%;
+}

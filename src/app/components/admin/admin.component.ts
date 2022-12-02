@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterContentChecked} from '@angular/core';
 import { GetDataService } from '../service/get-data.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { Card } from '../models/card';
+import { Cart } from '../models/cart';
 import {FormGroup, FormControl} from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -28,7 +28,7 @@ export class AdminComponent implements OnInit, AfterContentChecked{
 
   columnsToDisplay: string[] = ['id', 'userId', 'date', 'products'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-  expandedElement: Card | null;
+  expandedElement: Cart | null;
   cardSource:any;
   dataSource: any;
   products:any;

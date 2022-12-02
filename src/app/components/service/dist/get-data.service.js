@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.GetDataService = void 0;
 var core_1 = require("@angular/core");
-var card_1 = require("../models/card");
+var cart_1 = require("../models/cart");
 var operators_1 = require("rxjs/operators");
 var rxjs_1 = require("rxjs");
 var GetDataService = /** @class */ (function () {
@@ -26,7 +26,7 @@ var GetDataService = /** @class */ (function () {
             .pipe(operators_1.map(function (crd) {
             var newDataArray = [];
             for (var key in crd) {
-                newDataArray.push(new card_1.Card(crd[key].id, crd[key].userId, crd[key].date, crd[key].products));
+                newDataArray.push(new cart_1.Cart(crd[key].id, crd[key].userId, crd[key].date, crd[key].products));
             }
             newDataArray.forEach(function (card) {
                 card.date = new Date(card.date);

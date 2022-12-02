@@ -7,12 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.CatalogComponent = void 0;
+var card_component_1 = require("./card/card.component");
 var core_1 = require("@angular/core");
 var CatalogComponent = /** @class */ (function () {
-    function CatalogComponent(getDataService) {
+    function CatalogComponent(getDataService, dialog) {
         this.getDataService = getDataService;
+        this.dialog = dialog;
         this.page = 1;
         this.selected = '';
+        this.clickedProduct = new Set;
     }
     CatalogComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -56,6 +59,17 @@ var CatalogComponent = /** @class */ (function () {
                 this.getPriceDec();
                 break;
         }
+    };
+    CatalogComponent.prototype.openDialog = function (enterAnimationDuration, exitAnimationDuration) {
+        var dialogRef = this.dialog.open(card_component_1.CardComponent, {
+            width: '80%',
+            enterAnimationDuration: enterAnimationDuration,
+            exitAnimationDuration: exitAnimationDuration,
+            data: this.clickedProduct,
+            autoFocus: false
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+        });
     };
     CatalogComponent = __decorate([
         core_1.Component({

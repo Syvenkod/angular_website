@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Card } from '../models/card';
+import { Cart } from '../models/cart';
 import { Slide } from '../models/slide';
 import { User } from '../models/user';
 import { catchError, map } from 'rxjs/operators';
@@ -19,13 +19,13 @@ export class GetDataService {
   }
 
   // Cart
-  getCartData():Observable<Card[]>{
-    return this.http.get<Card[]>('https://fakestoreapi.com/carts')
+  getCartData():Observable<Cart[]>{
+    return this.http.get<Cart[]>('https://fakestoreapi.com/carts')
     .pipe(
       map(crd =>{
         let newDataArray = [];
         for (let key in crd){
-        newDataArray.push(new Card (crd[key].id, crd[key].userId, crd[key].date, crd[key].products))
+        newDataArray.push(new Cart (crd[key].id, crd[key].userId, crd[key].date, crd[key].products))
         }
         newDataArray.forEach(card=>{
           card.date = new Date(card.date)

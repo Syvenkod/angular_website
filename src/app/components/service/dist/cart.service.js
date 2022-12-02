@@ -6,22 +6,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.CartComponent = void 0;
+exports.CartService = void 0;
 var core_1 = require("@angular/core");
-var CartComponent = /** @class */ (function () {
-    function CartComponent(cartService) {
-        this.cartService = cartService;
-        this.items = this.cartService.getItems();
+var CartService = /** @class */ (function () {
+    function CartService() {
+        this.items = [];
     }
-    CartComponent.prototype.ngOnInit = function () {
+    CartService.prototype.addToCart = function (product) {
+        this.items.push(product);
     };
-    CartComponent = __decorate([
-        core_1.Component({
-            selector: 'app-cart',
-            templateUrl: './cart.component.html',
-            styleUrls: ['./cart.component.scss']
+    CartService.prototype.getItems = function () {
+        return this.items;
+    };
+    CartService.prototype.clearCart = function () {
+        this.items = [];
+        return this.items;
+    };
+    CartService = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], CartComponent);
-    return CartComponent;
+    ], CartService);
+    return CartService;
 }());
-exports.CartComponent = CartComponent;
+exports.CartService = CartService;

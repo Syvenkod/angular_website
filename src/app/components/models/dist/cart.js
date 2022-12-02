@@ -1,13 +1,13 @@
 "use strict";
 exports.__esModule = true;
-exports.Card = void 0;
-var Card = /** @class */ (function () {
-    function Card(id, userId, date, products) {
+exports.Cart = void 0;
+var Cart = /** @class */ (function () {
+    function Cart(id, userId, date, products) {
         this.id = id;
         this.userId = userId;
         this.date = date;
         this.products = products;
     }
-    return Card;
+    return Cart;
 }());
-exports.Card = Card;
+exports.Cart = Cart;
