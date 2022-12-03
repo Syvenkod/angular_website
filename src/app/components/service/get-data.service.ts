@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Cart } from '../models/cart';
 import { Slide } from '../models/slide';
 import { User } from '../models/user';
+import { Product } from '../models/product';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
@@ -13,8 +14,8 @@ export class GetDataService {
 
   // Products
 
-  getProductData(){
-    return this.http.get('https://fakestoreapi.com/products')
+  getProductData():Observable<Product[]>{
+    return this.http.get<Product[]>('https://fakestoreapi.com/products')
     .pipe(catchError(this.handleError));
   }
 
