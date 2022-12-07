@@ -1,3 +1,46 @@
 <div class="footer">
-<p>Copyright © Spilo {{date}} All rights reserved | This website is made with Love by <a href="https://github.com/Syvenkod" target="_blank">Syvenkod</a></p>
+<div class="container">
+    <div class="footer-tab">
+        <div class="categories">
+            <h3>Categories</h3>
+            <p *ngFor="let category of categories" (click)="showCategory()">
+                <button class="hov">{{category}}</button>
+              </p>
+        </div>
+        <div class="help">
+            <h3>Help</h3>
+            <p><a href="#">Track Order</a></p>
+            <p><a href="#">Returns</a></p>
+            <p><a href="#">Shipping</a></p>
+            <p><a href="#">FAQs</a></p>
+        </div>
+        <div class="getInTouch">
+            <h3>Get in Touch</h3>
+            <p>Any questions? Let us know in Spilo Store, Kyiv, Ukraine or call us on +38 067 123 45 67</p>
+            <div class="social">
+                <a href="https://www.facebook.com/spilo.com.ua/" target="_blank"><fa-icon [icon]="facebook"></fa-icon></a>
+                <a href="https://www.instagram.com/spilo_loft/" target="_blank"><fa-icon [icon]="itstagram"></fa-icon></a>
+                <a href="https://www.pinterest.com/spilocomua/" target="_blank"><fa-icon [icon]="pinterest"></fa-icon></a>
+            </div>
+        </div>
+        <div class="newsletter">
+            <h3>Newsletter</h3>
+            <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
+                    <input matInput type="email" required formControlName="email" placeholder="email@example.com">
+                <div *ngIf="form.get('email').hasError('required') &&
+                form.get('email').touched" class="alert">
+                    Required field!
+                </div>
+                <div *ngIf="form.get('email').hasError('email') &&
+                form.get('email').touched" class="alert">
+                  Email format error!
+                </div>
+            <div>
+                <button  [disabled]="form.invalid" type="submit" class="subscribe trans-06">subscribe</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<p class="copyright">Copyright © Spilo {{date}} All rights reserved | This website is made with Love by <a href="https://github.com/Syvenkod" target="_blank">Syvenkod</a></p>
 </div>

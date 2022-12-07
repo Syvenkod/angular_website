@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DatePipe } from '@angular/common';
 import { MatCommonModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 
 
@@ -23,7 +25,10 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     MainModule,
     MatIconModule,
-    MatCommonModule
+    MatCommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

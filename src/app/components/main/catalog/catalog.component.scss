@@ -81,6 +81,7 @@
     }
 
     button{
+        text-transform: capitalize;
         background: transparent;
         outline: none;
         border: none;
@@ -96,10 +97,3 @@
     }
 }
 
-
-.trans-06 {
-	-webkit-transition: all 0.6s;
-    -o-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    transition: all 0.6s;
-}

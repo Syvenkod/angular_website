@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppModule = void 0;
+var angular_fontawesome_1 = require("@fortawesome/angular-fontawesome");
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_routing_module_1 = require("./app-routing.module");
@@ -17,6 +18,7 @@ var footer_component_1 = require("./components/footer/footer.component");
 var common_1 = require("@angular/common");
 var core_2 = require("@angular/material/core");
 var icon_1 = require("@angular/material/icon");
+var forms_1 = require("@angular/forms");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -32,7 +34,10 @@ var AppModule = /** @class */ (function () {
                 app_routing_module_1.AppRoutingModule,
                 main_module_1.MainModule,
                 icon_1.MatIconModule,
-                core_2.MatCommonModule
+                core_2.MatCommonModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
+                angular_fontawesome_1.FontAwesomeModule,
             ],
             providers: [common_1.DatePipe],
             bootstrap: [app_component_1.AppComponent]

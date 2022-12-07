@@ -86,17 +86,3 @@
   -o-transform: translateY(0%);
   transform: translateY(0%);
 }
-
-.trans-05 {
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.trans-09 {
-  -webkit-transition: all 0.9s;
-  -o-transition: all 0.9s;
-  -moz-transition: all 0.9s;
-  transition: all 0.9s;
-}
