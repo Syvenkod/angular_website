@@ -11,7 +11,7 @@ export class AppComponent implements OnInit, AfterContentChecked {
               private activatedRoute: ActivatedRoute,
               ) {}
 
-  title = 'angular_website';
+  title = 'Spilo store';
   LogoImage: string = 'assets/image/spilo-logo.png';
   headerDesktop: HTMLElement;
 

@@ -12,7 +12,7 @@ var AppComponent = /** @class */ (function () {
     function AppComponent(router, activatedRoute) {
         this.router = router;
         this.activatedRoute = activatedRoute;
-        this.title = 'angular_website';
+        this.title = 'Spilo store';
         this.LogoImage = 'assets/image/spilo-logo.png';
     }
     AppComponent.prototype.ngOnInit = function () {

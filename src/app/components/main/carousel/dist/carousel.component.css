@@ -74,17 +74,19 @@
   line-height: 1.1;
   text-transform: uppercase;
 }
-.slide-banner a {
+.slide-banner button {
   font-family: Poppins-Regular;
-  font-size: x-large;
-  border-radius: 50px;
-  background: white;
-  color: #333;
-  text-decoration: none;
+  font-size: 20px;
+  line-height: 1.466667;
+  color: #fff;
+  background-color: rgba(103, 117, 214, 0.8);
+  border-color: transparent;
+  border-radius: 20px;
+  min-width: 139px;
   height: 40px;
   margin: 1%;
 }
-.slide-banner a:hover {
-  background: #333;
-  color: white;
+.slide-banner button:hover {
+  background-color: #222;
+  font-weight: bold;
 }

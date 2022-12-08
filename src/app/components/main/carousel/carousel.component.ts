@@ -12,6 +12,7 @@ import {
   jackOut
 } from "./carousel.animations";
 import { GetDataService } from '../../service/get-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carousel',
@@ -63,7 +64,8 @@ export class CarouselComponent implements OnInit {
   currentSlide = 0;
   show = true;
 
-  constructor(private service: GetDataService) { }
+  constructor(private service: GetDataService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.service.getSlides().subscribe(res =>{
@@ -80,6 +82,10 @@ export class CarouselComponent implements OnInit {
   onNextClick() {
     const next = this.currentSlide + 1;
     this.currentSlide = next === this.slides.length ? 0 : next;
+  }
+
+  goToShop(){
+    this.router.navigateByUrl('catalog');
   }
 
 }

@@ -11,7 +11,7 @@ export class BannerComponent implements OnInit {
 
   constructor(
     private getDataService: GetDataService,
-    private router: Router,) { }
+    private router: Router) { }
 
   ngOnInit(): void {
   }

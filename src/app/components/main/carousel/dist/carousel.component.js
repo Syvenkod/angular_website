@@ -11,8 +11,9 @@ var core_1 = require("@angular/core");
 var animations_1 = require("@angular/animations");
 var carousel_animations_1 = require("./carousel.animations");
 var CarouselComponent = /** @class */ (function () {
-    function CarouselComponent(service) {
+    function CarouselComponent(service, router) {
         this.service = service;
+        this.router = router;
         this.animationType = carousel_animations_1.AnimationType.Fade;
         this.animationTitle = carousel_animations_1.AnimationType.Scale;
         this.animationDescription = carousel_animations_1.AnimationType.Flip;
@@ -34,6 +35,9 @@ var CarouselComponent = /** @class */ (function () {
     CarouselComponent.prototype.onNextClick = function () {
         var next = this.currentSlide + 1;
         this.currentSlide = next === this.slides.length ? 0 : next;
+    };
+    CarouselComponent.prototype.goToShop = function () {
+        this.router.navigateByUrl('catalog');
     };
     CarouselComponent = __decorate([
         core_1.Component({
