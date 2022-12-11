@@ -1,7 +1,7 @@
 <div class="container">
   <div class="shop">
   <div id="category">
-  <div class="category-name">
+    <div class="category-name">
   <div><button (click)="getAllProducts()">All Products</button></div>
   <div *ngFor="let category of categories" (click)="showCategory(category)">
     <button>{{category}}</button>
@@ -10,7 +10,7 @@
 <div>
 <div class="sort-filter">
 <div class="select-sort">
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" >
    <mat-label>Sort by Price</mat-label>
    <mat-select [(value)]="selected">
     <mat-option value="None">None</mat-option>
