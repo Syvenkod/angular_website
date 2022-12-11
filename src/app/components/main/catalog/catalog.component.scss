@@ -70,30 +70,38 @@
         }
 }
 
-#category, .sort-filter, .category-name{
-    display: flex;
-    justify-content: space-between;
+#category{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(445px, 1fr));
     gap: 10px;
     font-size: 12px;
-    .category-name{
-        width: 45%;
-        align-items: center;
+    .sort-filter{
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px 10px;
     }
+    .category-name{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
 
-    button{
-        text-transform: capitalize;
-        background: transparent;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        font-family: Poppins-Regular;
-        font-size: 15px;
-        line-height: 1.2;
-            &:hover{
-            font-weight: bold;
-            color: #333;
-            border-bottom:1px solid #797979;
-            }
+        button{
+            text-transform: capitalize;
+            background: transparent;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-family: Poppins-Regular;
+            font-size: 15px;
+            line-height: 1.2;
+                &:hover{
+                font-weight: bold;
+                color: #333;
+                border-bottom:1px solid #797979;
+                }
+        }
     }
 }
 

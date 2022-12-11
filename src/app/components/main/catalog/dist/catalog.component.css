@@ -70,17 +70,25 @@
   color: #fff;
 }
 
-#category, .sort-filter, .category-name {
-  display: flex;
-  justify-content: space-between;
+#category {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(445px, 1fr));
   gap: 10px;
   font-size: 12px;
 }
-#category .category-name, .sort-filter .category-name, .category-name .category-name {
-  width: 45%;
+#category .sort-filter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px 10px;
+}
+#category .category-name {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   align-items: center;
 }
-#category button, .sort-filter button, .category-name button {
+#category .category-name button {
   text-transform: capitalize;
   background: transparent;
   outline: none;
@@ -90,7 +98,7 @@
   font-size: 15px;
   line-height: 1.2;
 }
-#category button:hover, .sort-filter button:hover, .category-name button:hover {
+#category .category-name button:hover {
   font-weight: bold;
   color: #333;
   border-bottom: 1px solid #797979;
