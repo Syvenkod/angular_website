@@ -15,7 +15,22 @@
    <li><a routerLink="contacts" routerLinkActive="active">Contact</a></li>
    <li><a routerLink="cart" routerLinkActive="active"><mat-icon aria-hidden="false" aria-label="cart" fontIcon="shopping_cart">shopping_cart</mat-icon></a></li>
   </ul>
+
+  <div class="menu-mobile">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <a mat-menu-item routerLink="main" routerLinkActive="active">Main</a>
+        <a mat-menu-item routerLink="catalog" routerLinkActive="active">Shop</a>
+        <a mat-menu-item routerLink="admin" routerLinkActive="active">Admin</a>
+        <a mat-menu-item routerLink="about-us" routerLinkActive="active">About</a>
+        <a mat-menu-item routerLink="contacts" routerLinkActive="active">Contact</a>
+        <a mat-menu-item routerLink="cart" routerLinkActive="active"><mat-icon aria-hidden="false" aria-label="cart" fontIcon="shopping_cart">shopping_cart</mat-icon></a>
+    </mat-menu>
+  </div>
   </nav>
+
 </div>
 </div>
 </div>

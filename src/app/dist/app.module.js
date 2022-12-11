@@ -17,6 +17,7 @@ var main_module_1 = require("./components/main/main-route/main.module");
 var footer_component_1 = require("./components/footer/footer.component");
 var common_1 = require("@angular/common");
 var core_2 = require("@angular/material/core");
+var menu_1 = require("@angular/material/menu");
 var icon_1 = require("@angular/material/icon");
 var forms_1 = require("@angular/forms");
 var AppModule = /** @class */ (function () {
@@ -38,6 +39,7 @@ var AppModule = /** @class */ (function () {
                 forms_1.FormsModule,
                 forms_1.ReactiveFormsModule,
                 angular_fontawesome_1.FontAwesomeModule,
+                menu_1.MatMenuModule
             ],
             providers: [common_1.DatePipe],
             bootstrap: [app_component_1.AppComponent]

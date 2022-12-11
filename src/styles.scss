@@ -130,17 +130,25 @@ body { margin: auto; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 @media only screen and (max-width: 576px){
+
+  .menu-mobile{
+    visibility: visible !important;
+    margin-top: 2%;
+  }
+
   .category-name{
       display:grid !important;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      justify-items: center;
   }
   .sort-filter{
       display:grid !important;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      justify-items: center;
   }
   .menu {
     display: none !important;
+  }
+
+  .trans-image{
+    height: auto;
   }
 }
