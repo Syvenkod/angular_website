@@ -12,7 +12,7 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -23,14 +23,15 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     MainModule,
+    AppRoutingModule,
     MatIconModule,
     MatCommonModule,
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    MatMenuModule
+    MatMenuModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

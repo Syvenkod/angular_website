@@ -20,7 +20,17 @@
                         <p>{{product.description}}</p>
                     </div>
                         <div>
-                            <button (click)="addToCart(product)">Add to Cart</button>
+                            <swal
+                                #Swal
+                                title="{{product.title}}"
+                                text="is added to cart !"
+                                icon="success"
+                                [timer]="3000"
+                            >
+                            </swal>
+                            <button (click)="addToCart(product)"
+                            [swal]="Swal"
+                            >Add to Cart</button>
                         </div>
                 </div>
     </div>

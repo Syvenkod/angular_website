@@ -20,6 +20,7 @@ var core_2 = require("@angular/material/core");
 var menu_1 = require("@angular/material/menu");
 var icon_1 = require("@angular/material/icon");
 var forms_1 = require("@angular/forms");
+var ngx_sweetalert2_1 = require("@sweetalert2/ngx-sweetalert2");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -32,14 +33,15 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 platform_browser_1.BrowserModule,
-                app_routing_module_1.AppRoutingModule,
                 main_module_1.MainModule,
+                app_routing_module_1.AppRoutingModule,
                 icon_1.MatIconModule,
                 core_2.MatCommonModule,
                 forms_1.FormsModule,
                 forms_1.ReactiveFormsModule,
                 angular_fontawesome_1.FontAwesomeModule,
-                menu_1.MatMenuModule
+                menu_1.MatMenuModule,
+                ngx_sweetalert2_1.SweetAlert2Module.forRoot()
             ],
             providers: [common_1.DatePipe],
             bootstrap: [app_component_1.AppComponent]

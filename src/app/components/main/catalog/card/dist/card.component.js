@@ -23,7 +23,6 @@ var CardComponent = /** @class */ (function () {
     };
     CardComponent.prototype.addToCart = function (product) {
         this.cartService.addToCart(product);
-        window.alert('Your product has been added to the cart!');
     };
     CardComponent = __decorate([
         core_1.Component({

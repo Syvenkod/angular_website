@@ -9,19 +9,13 @@ exports.__esModule = true;
 exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var catalog_component_1 = require("./components/main/catalog/catalog.component");
-var contacts_component_1 = require("./components/main/contacts/contacts.component");
 var main_component_1 = require("./components/main/main.component");
 var page404_component_1 = require("./components/page404/page404.component");
-var about_us_component_1 = require("./components/main/about-us/about-us.component");
 var routes = [
     { path: '', redirectTo: 'main', pathMatch: 'full' },
     { path: 'main', component: main_component_1.MainComponent },
-    { path: 'catalog', component: catalog_component_1.CatalogComponent },
     { path: 'cart', loadChildren: function () { return Promise.resolve().then(function () { return require("../app/components/cart/cart.module"); }).then(function (cart) { return cart.CartModule; }); } },
-    { path: 'about-us', component: about_us_component_1.AboutUsComponent },
     { path: 'admin', loadChildren: function () { return Promise.resolve().then(function () { return require("./components/admin/admin.module"); }).then(function (admin) { return admin.AdminModule; }); } },
-    { path: 'contacts', component: contacts_component_1.ContactsComponent },
     { path: '**', component: page404_component_1.Page404Component },
 ];
 var AppRoutingModule = /** @class */ (function () {

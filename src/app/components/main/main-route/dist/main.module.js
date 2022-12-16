@@ -10,6 +10,7 @@ exports.MainModule = void 0;
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var get_data_service_1 = require("../../service/get-data.service");
+var main_routing_module_1 = require("../main-route/main-routing.module");
 var catalog_component_1 = require("../catalog/catalog.component");
 var contacts_component_1 = require("../contacts/contacts.component");
 var ngx_pagination_1 = require("ngx-pagination");
@@ -29,7 +30,6 @@ var icon_1 = require("@angular/material/icon");
 var search_filter_pipe_1 = require("../../shared/search-filter.pipe");
 var divider_1 = require("@angular/material/divider");
 var banner_component_1 = require("../carousel/banner/banner.component");
-var card_component_1 = require("../catalog/card/card.component");
 var google_maps_1 = require("@angular/google-maps");
 var dialog_1 = require("@angular/material/dialog");
 var MainModule = /** @class */ (function () {
@@ -45,7 +45,6 @@ var MainModule = /** @class */ (function () {
                 carousel_component_1.CarouselComponent,
                 banner_component_1.BannerComponent,
                 search_filter_pipe_1.SearchFilterPipe,
-                card_component_1.CardComponent
             ],
             imports: [
                 common_1.CommonModule,
@@ -62,7 +61,8 @@ var MainModule = /** @class */ (function () {
                 icon_1.MatIconModule,
                 divider_1.MatDividerModule,
                 google_maps_1.GoogleMapsModule,
-                dialog_1.MatDialogModule
+                dialog_1.MatDialogModule,
+                main_routing_module_1.MainRoutingModule
             ],
             providers: [get_data_service_1.GetDataService]
         })

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { GetDataService } from '../../service/get-data.service';
 
+import { MainRoutingModule } from '../main-route/main-routing.module'
 import { CatalogComponent } from '../catalog/catalog.component';
 import { ContactsComponent } from '../contacts/contacts.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -21,9 +22,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { SearchFilterPipe } from '../../shared/search-filter.pipe';
 import { MatDividerModule } from '@angular/material/divider'
 import { BannerComponent } from '../carousel/banner/banner.component';
-import { CardComponent } from '../catalog/card/card.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +35,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     CarouselComponent,
     BannerComponent,
     SearchFilterPipe,
-    CardComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +51,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatDividerModule,
     GoogleMapsModule,
-    MatDialogModule
+    MatDialogModule,
+    MainRoutingModule
   ],
 
   providers: [GetDataService],
