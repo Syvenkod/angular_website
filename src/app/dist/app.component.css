@@ -53,3 +53,8 @@
   -o-box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.2);
 }
+
+.mat-badge-content {
+  font-size: 10px;
+  background: rgba(103, 117, 214, 0.8);
+}

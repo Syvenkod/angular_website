@@ -21,7 +21,7 @@ var CatalogComponent = /** @class */ (function () {
         var _this = this;
         this.getDataService.getProductData().subscribe(function (res) {
             _this.products = res;
-            console.log(_this.products);
+            console.table(_this.products);
         });
         this.getDataService.getCategoriesData().subscribe(function (ct) {
             _this.categories = ct;

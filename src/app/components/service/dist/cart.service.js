@@ -11,15 +11,21 @@ var core_1 = require("@angular/core");
 var CartService = /** @class */ (function () {
     function CartService() {
         this.items = [];
+        this.badgeContent = 0;
     }
     CartService.prototype.addToCart = function (product) {
         this.items.push(product);
+        this.badgeContent++;
     };
     CartService.prototype.getItems = function () {
         return this.items;
     };
+    CartService.prototype.getBadgeContent = function () {
+        return this.badgeContent;
+    };
     CartService.prototype.clearCart = function () {
         this.items = [];
+        this.badgeContent = 0;
         return this.items;
     };
     CartService = __decorate([

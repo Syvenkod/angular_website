@@ -13,7 +13,13 @@
    <li><a routerLink="admin" routerLinkActive="active">Admin</a></li>
    <li><a routerLink="about-us" routerLinkActive="active">About</a></li>
    <li><a routerLink="contacts" routerLinkActive="active">Contact</a></li>
-   <li><a routerLink="cart" routerLinkActive="active"><mat-icon aria-hidden="false" aria-label="cart" fontIcon="shopping_cart">shopping_cart</mat-icon></a></li>
+   <li><a routerLink="cart" routerLinkActive="active"
+        [matBadge]="badgeContent"
+        [matBadgeHidden]="badgeContent==0"
+        matBadgeSize="small">
+        <mat-icon>shopping_cart</mat-icon>
+        </a>
+      </li>
   </ul>
 
   <div class="menu-mobile">
@@ -26,7 +32,9 @@
         <a mat-menu-item routerLink="admin" routerLinkActive="active">Admin</a>
         <a mat-menu-item routerLink="about-us" routerLinkActive="active">About</a>
         <a mat-menu-item routerLink="contacts" routerLinkActive="active">Contact</a>
-        <a mat-menu-item routerLink="cart" routerLinkActive="active"><mat-icon aria-hidden="false" aria-label="cart" fontIcon="shopping_cart">shopping_cart</mat-icon></a>
+        <a mat-menu-item routerLink="cart" routerLinkActive="active"><mat-icon [matBadge]="badgeContent"
+          [matBadgeHidden]="badgeContent==0"
+           matBadgeSize="small">shopping_cart</mat-icon></a>
     </mat-menu>
   </div>
   </nav>

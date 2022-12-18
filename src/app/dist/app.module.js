@@ -21,6 +21,7 @@ var menu_1 = require("@angular/material/menu");
 var icon_1 = require("@angular/material/icon");
 var forms_1 = require("@angular/forms");
 var ngx_sweetalert2_1 = require("@sweetalert2/ngx-sweetalert2");
+var badge_1 = require("@angular/material/badge");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -41,7 +42,8 @@ var AppModule = /** @class */ (function () {
                 forms_1.ReactiveFormsModule,
                 angular_fontawesome_1.FontAwesomeModule,
                 menu_1.MatMenuModule,
-                ngx_sweetalert2_1.SweetAlert2Module.forRoot()
+                ngx_sweetalert2_1.SweetAlert2Module.forRoot(),
+                badge_1.MatBadgeModule
             ],
             providers: [common_1.DatePipe],
             bootstrap: [app_component_1.AppComponent]

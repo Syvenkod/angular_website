@@ -34,7 +34,7 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
   ngOnInit(): void {
     this.getDataService.getProductData().subscribe(res => {
       this.products = res;
-      console.log(this.products);});
+      console.table(this.products);});
     this.getDataService.getCategoriesData().subscribe(ct => {
       this.categories = ct;});
   }
