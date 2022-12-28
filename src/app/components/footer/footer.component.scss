@@ -85,8 +85,11 @@
                         margin-top: 10px;
                         &:hover{
                             cursor: pointer;
-                            color: rgba(103,117,214,0.8);
-                            background-color: white;
+                            // color: rgba(103,117,214,0.8);
+                            // background-color: white;
+                            color: aqua;
+                            box-shadow: 3px 3px 20px #03e9f4,
+                            3px 2px 20px #03e9f4
                         }
                     }
                 }
