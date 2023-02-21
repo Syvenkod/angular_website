@@ -6,7 +6,7 @@ import { Product } from '../models/product';
 })
 export class CartService {
 
-  constructor() {}
+  constructor() { }
 
   items: Product[] = [];
   badgeContent: number = 0;
@@ -20,7 +20,7 @@ export class CartService {
     return this.items;
   }
 
-  getBadgeContent(){
+  getBadgeContent() {
     return this.badgeContent;
   }
 
