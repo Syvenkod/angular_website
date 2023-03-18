@@ -24,7 +24,7 @@ import { MatDividerModule } from '@angular/material/divider'
 import { BannerComponent } from '../carousel/banner/banner.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDividerModule,
     GoogleMapsModule,
     MatDialogModule,
-    MainRoutingModule
+    MainRoutingModule,
+    MatSnackBarModule,
   ],
 
   providers: [GetDataService],

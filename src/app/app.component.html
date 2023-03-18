@@ -13,10 +13,11 @@
    <li><a routerLink="admin" routerLinkActive="active">Admin</a></li>
    <li><a routerLink="about-us" routerLinkActive="active">About</a></li>
    <li><a routerLink="contacts" routerLinkActive="active">Contact</a></li>
-   <li><a routerLink="cart" routerLinkActive="active"
+   <li><a
         [matBadge]="badgeContent"
         [matBadgeHidden]="badgeContent==0"
-        matBadgeSize="small">
+        matBadgeSize="small"
+        (click)="sidenav.toggle()">
         <mat-icon>shopping_cart</mat-icon>
         </a>
       </li>
@@ -38,11 +39,45 @@
     </mat-menu>
   </div>
   </nav>
-
 </div>
 </div>
 </div>
 </div>
 </header>
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav mode="over"
+    position="end"
+    autosize
+    fixedInViewport="true">
+      <div class="side-cart">
+          <div class="header-side-cart">
+            <h2>quantity! Items</h2>
+            <button class="close-button" (click)="sidenav.toggle()">
+              <mat-icon class="close-icon">close</mat-icon>
+            </button>
+          </div>
+          <div class="list-items" *ngFor="let item of items" >
+            <div class="flex justify-between font-light mb-2">
+              {{item.title}}
+              <span class="font-bold">{{ item.price | currency }}</span>
+            </div>
+          </div>
+          <div class="total">
+            <h3>Total: <span class="font-bold">{{ "Add Total Sum" }}</span></h3>
+
+          </div>
+          <div class="btn-block">
+            <button class="btn"
+              routerLink="cart"
+              routerLinkActive="active"
+              (click)="sidenav.toggle()">View Cart</button>
+            <button class="btn">Clear Cart</button>
+          </div>
+        </div>
+    </mat-sidenav>
+  <mat-sidenav-content>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+</mat-sidenav-content>
+</mat-sidenav-container>

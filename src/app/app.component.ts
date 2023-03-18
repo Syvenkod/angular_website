@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, AfterContentChecked {
   LogoImage: string = 'assets/image/spilo-logo.png';
   headerDesktop: HTMLElement;
   badgeContent: number;
-
+  items = this.cartService.getItems();
 
   ngOnInit(): void {
     this.headerDesktop = document.querySelector<HTMLElement>('.menu-desktop');

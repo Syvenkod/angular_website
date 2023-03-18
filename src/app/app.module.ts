@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     FontAwesomeModule,
     MatMenuModule,
     SweetAlert2Module.forRoot(),
-    MatBadgeModule
+    MatBadgeModule,
+    MatSidenavModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

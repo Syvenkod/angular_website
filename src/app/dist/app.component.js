@@ -15,6 +15,7 @@ var AppComponent = /** @class */ (function () {
         this.cartService = cartService;
         this.title = 'Spilo store';
         this.LogoImage = 'assets/image/spilo-logo.png';
+        this.items = this.cartService.getItems();
     }
     AppComponent.prototype.ngOnInit = function () {
         this.headerDesktop = document.querySelector('.menu-desktop');
