@@ -63,17 +63,6 @@
   justify-content: space-between;
   padding: 10px;
 }
-.side-cart .close-button {
-  float: right;
-  border-style: none;
-  background-color: transparent;
-}
-.side-cart .close-button .close-icon {
-  transition: 1s ease-in-out;
-}
-.side-cart .close-button .close-icon:hover {
-  transform: rotate(180deg);
-}
 .side-cart .btn {
   font-family: Poppins-Regular;
   font-size: 15px;

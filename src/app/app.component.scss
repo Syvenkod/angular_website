@@ -63,17 +63,6 @@
         justify-content: space-between;
         padding: 10px;
       }
-      .close-button{
-        float: right;
-        border-style: none;
-        background-color: transparent;
-        .close-icon {
-          transition: 1s ease-in-out;
-        }
-        .close-icon:hover {
-          transform: rotate(180deg);
-        }
-      }
 
       .btn{
         font-family: Poppins-Regular;
