@@ -13,7 +13,7 @@ var CartComponent = /** @class */ (function () {
         this.cartService = cartService;
     }
     CartComponent.prototype.ngOnInit = function () {
-        this.items = this.cartService.items$;
+        this.items = this.cartService.getItems();
     };
     CartComponent = __decorate([
         core_1.Component({

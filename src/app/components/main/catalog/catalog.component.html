@@ -40,6 +40,20 @@
     <mat-card-content>
     <p>{{product.title}}</p>
     <p>{{product.price | currency}} </p>
+    <div>
+      <swal
+          #Swal
+          title="{{product.title}}"
+          text="is added to cart !"
+          icon="success"
+          confirmButtonColor="#222"
+          [timer]="3000"
+      >
+      </swal>
+      <button (click)="addToCart(product)"
+      [swal]="Swal"
+      >Buy Now</button>
+  </div>
   </mat-card-content>
   </div>
 </mat-card>

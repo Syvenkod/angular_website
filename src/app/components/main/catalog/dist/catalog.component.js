@@ -11,9 +11,10 @@ var product_1 = require("./../../models/product");
 var card_component_1 = require("./card/card.component");
 var core_1 = require("@angular/core");
 var CatalogComponent = /** @class */ (function () {
-    function CatalogComponent(getDataService, dialog) {
+    function CatalogComponent(getDataService, dialog, cartService) {
         this.getDataService = getDataService;
         this.dialog = dialog;
+        this.cartService = cartService;
         this.page = 1;
         this.selected = '';
     }
@@ -59,6 +60,9 @@ var CatalogComponent = /** @class */ (function () {
                 this.getPriceDec();
                 break;
         }
+    };
+    CatalogComponent.prototype.addToCart = function (product) {
+        this.cartService.addToCart(product);
     };
     CatalogComponent.prototype.openDialog = function (enterAnimationDuration, exitAnimationDuration) {
         var _this = this;

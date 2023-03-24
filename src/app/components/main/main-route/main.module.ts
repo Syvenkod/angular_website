@@ -25,6 +25,7 @@ import { BannerComponent } from '../carousel/banner/banner.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogModule,
     MainRoutingModule,
     MatSnackBarModule,
+    SweetAlert2Module
   ],
 
   providers: [GetDataService],

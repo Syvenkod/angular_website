@@ -33,6 +33,7 @@ var banner_component_1 = require("../carousel/banner/banner.component");
 var google_maps_1 = require("@angular/google-maps");
 var dialog_1 = require("@angular/material/dialog");
 var snack_bar_1 = require("@angular/material/snack-bar");
+var ngx_sweetalert2_1 = require("@sweetalert2/ngx-sweetalert2");
 var MainModule = /** @class */ (function () {
     function MainModule() {
     }
@@ -65,6 +66,7 @@ var MainModule = /** @class */ (function () {
                 dialog_1.MatDialogModule,
                 main_routing_module_1.MainRoutingModule,
                 snack_bar_1.MatSnackBarModule,
+                ngx_sweetalert2_1.SweetAlert2Module
             ],
             providers: [get_data_service_1.GetDataService]
         })

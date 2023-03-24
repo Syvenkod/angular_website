@@ -3,6 +3,7 @@ import { CardComponent } from './card/card.component';
 import { ChangeDetectionStrategy, Component, OnInit, AfterContentChecked} from '@angular/core';
 import { GetDataService } from '../../service/get-data.service';
 import { MatDialog} from '@angular/material/dialog';
+import { CartService } from '../../service/cart.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ import { MatDialog} from '@angular/material/dialog';
 export class CatalogComponent implements OnInit, Product, AfterContentChecked {
 
   constructor(private getDataService: GetDataService,
-              public dialog: MatDialog) {}
+              public dialog: MatDialog,
+              private cartService: CartService) {}
 
    products: any | undefined;
    category:string;
@@ -27,8 +29,8 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
    title: string;
    page: number = 1;
    selected ='';
-   currentValue: any|undefined;
-   clickedProduct: any|undefined;
+   currentValue: any | undefined;
+   clickedProduct: any | undefined;
 
 
   ngOnInit(): void {
@@ -74,6 +76,10 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
               this.getPriceDec();
               break;
     }
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
