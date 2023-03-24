@@ -34,7 +34,7 @@
         <a mat-menu-item routerLink="about-us" routerLinkActive="active">About</a>
         <a mat-menu-item routerLink="contacts" routerLinkActive="active">Contact</a>
         <a mat-menu-item routerLink="cart" routerLinkActive="active"><mat-icon [matBadge]="badgeContent"
-          [matBadgeHidden]="badgeContent==0"
+          [matBadgeHidden]="badgeContent===0"
            matBadgeSize="small">shopping_cart</mat-icon></a>
     </mat-menu>
   </div>
@@ -54,12 +54,15 @@
           <div class="header-side-cart">
             <h2>quantity! Items</h2>
           </div>
-          <div class="list-items" *ngFor="let item of items" >
-            <div class="flex justify-between font-light mb-2">
-              {{item.title}}
-              <span class="font-bold">{{ item.price | currency }}</span>
+          <mat-card class="list-items" *ngFor="let item of items" >
+            <div class="item">
+              <img mat-card-sm-image src="{{item.image}}">
+            <mat-card-content>
+             <p>{{item.title}}</p>
+              <p>{{ item.price | currency }}</p>
+            </mat-card-content>
             </div>
-          </div>
+          </mat-card>
           <div class="total">
             <h3>Total: <span class="font-bold">{{ "Add Total Sum" }}</span></h3>
 
@@ -68,8 +71,10 @@
             <button class="btn"
               routerLink="cart"
               routerLinkActive="active"
-              (click)="sidenav.toggle()">View Cart</button>
-            <button class="btn">Clear Cart</button>
+              (click)="sidenav.toggle()">
+              View Cart</button>
+            <button class="btn"
+            (click)="clearCart()">Clear Cart</button>
           </div>
         </div>
     </mat-sidenav>

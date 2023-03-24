@@ -11,9 +11,9 @@ var core_1 = require("@angular/core");
 var CartComponent = /** @class */ (function () {
     function CartComponent(cartService) {
         this.cartService = cartService;
-        this.items = this.cartService.getItems();
     }
     CartComponent.prototype.ngOnInit = function () {
+        this.items = this.cartService.items$;
     };
     CartComponent = __decorate([
         core_1.Component({

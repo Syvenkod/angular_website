@@ -23,6 +23,7 @@ var forms_1 = require("@angular/forms");
 var ngx_sweetalert2_1 = require("@sweetalert2/ngx-sweetalert2");
 var badge_1 = require("@angular/material/badge");
 var sidenav_1 = require("@angular/material/sidenav");
+var card_1 = require("@angular/material/card");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -45,7 +46,8 @@ var AppModule = /** @class */ (function () {
                 menu_1.MatMenuModule,
                 ngx_sweetalert2_1.SweetAlert2Module.forRoot(),
                 badge_1.MatBadgeModule,
-                sidenav_1.MatSidenavModule
+                sidenav_1.MatSidenavModule,
+                card_1.MatCardModule,
             ],
             providers: [common_1.DatePipe],
             bootstrap: [app_component_1.AppComponent]

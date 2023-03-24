@@ -52,15 +52,14 @@
   }
   .side-cart{
       width: 360px;
-      height: 70%;
       overflow: hidden;
       padding-top: 75px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      .header-side-cart, .btn-block{
+      .header-side-cart, .btn-block, .item{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         padding: 10px;
       }
 

@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatMenuModule,
     SweetAlert2Module.forRoot(),
     MatBadgeModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
