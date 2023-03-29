@@ -1,7 +1,10 @@
-export class Cart{
-    constructor ( readonly id: number,
-        readonly userId: number,
-        readonly date: Date,
-        readonly products: any [])
-        {}
+export interface Cart {
+    items: Array <CartItem>;
+  }
+  export interface CartItem{
+     product: string,
+     name: string,
+     price: number,
+     quantity: number,
+     id: number,
   }

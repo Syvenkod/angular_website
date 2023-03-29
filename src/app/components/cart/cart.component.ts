@@ -1,6 +1,7 @@
 import { CartService } from './../service/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Cart, CartItem } from '../models/cart';
 
 @Component({
   selector: 'app-cart',
@@ -8,13 +9,44 @@ import { Observable } from 'rxjs';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  items: any | undefined;
+  cart: Cart = { items: []};
+  dataSource: Array<CartItem> = [];
+  displayedColumns: Array<string> = [
+    'product',
+    'name',
+    'price',
+    'quantity',
+    'total',
+    'action'
+  ]
 
   constructor( private cartService  : CartService) { }
 
   ngOnInit(): void {
-    this.items = this.cartService.getItems();
+    this.dataSource = this.cart.items;
+    this.cartService.cart.subscribe((_cart: Cart) => {
+      this.cart =_cart;
+      this.dataSource = this.cart.items;
+    })
   }
 
+  clearAll():void{
+    this.cartService.clearCart();
+  }
 
+  getTotal(items: Array<CartItem>): number{
+    return this.cartService.getTotal(items);
+  }
+
+  onRemoveFromCart(item): void {
+    this.cartService.removeFromCart(item);
+  }
+
+  addQuantity(item: CartItem): void{
+    this.cartService.addToCart(item)
+  }
+
+  removeQuantity(item: CartItem): void{
+    this.cartService.removeQuantity(item);
+  }
 }

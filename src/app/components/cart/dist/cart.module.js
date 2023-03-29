@@ -11,6 +11,9 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var cart_component_1 = require("./cart.component");
+var card_1 = require("@angular/material/card");
+var table_1 = require("@angular/material/table");
+var icon_1 = require("@angular/material/icon");
 var routes = [
     { path: '', component: cart_component_1.CartComponent }
 ];
@@ -24,6 +27,9 @@ var CartModule = /** @class */ (function () {
             ],
             imports: [
                 common_1.CommonModule,
+                card_1.MatCardModule,
+                table_1.MatTableModule,
+                icon_1.MatIconModule,
                 router_1.RouterModule.forChild(routes)
             ]
         })

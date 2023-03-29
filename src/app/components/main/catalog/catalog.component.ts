@@ -79,7 +79,13 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(product);
+    this.cartService.addToCart({
+      product: product.image,
+      name: product.title,
+      price: product.price,
+      quantity: 1,
+      id: product.id
+    });
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {

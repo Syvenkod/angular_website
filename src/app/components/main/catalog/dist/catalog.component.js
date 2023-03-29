@@ -62,7 +62,13 @@ var CatalogComponent = /** @class */ (function () {
         }
     };
     CatalogComponent.prototype.addToCart = function (product) {
-        this.cartService.addToCart(product);
+        this.cartService.addToCart({
+            product: product.image,
+            name: product.title,
+            price: product.price,
+            quantity: 1,
+            id: product.id
+        });
     };
     CatalogComponent.prototype.openDialog = function (enterAnimationDuration, exitAnimationDuration) {
         var _this = this;

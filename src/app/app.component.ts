@@ -1,5 +1,6 @@
-import { AfterContentChecked, AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
+import { AfterViewInit, Component, HostListener, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cart, CartItem } from './components/models/cart';
 import { CartService } from './components/service/cart.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { CartService } from './components/service/cart.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked {
+export class AppComponent implements OnInit, AfterViewInit {
   constructor(
     public router: Router,
     private activatedRoute: ActivatedRoute,
@@ -16,18 +17,29 @@ export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked 
 
   title = 'Spilo store';
   LogoImage: string = 'assets/image/spilo-logo.png';
-  badgeContent: any;
-  items: any;
   headerDesktop: HTMLElement;
+
+  private _cart: Cart = { items: []};
+  itemsQuantity = 0;
+
+  @Input()
+  get cart(): Cart {
+    return this._cart;
+  }
+  set cart(cart: Cart) {
+    this._cart = cart;
+
+    this.itemsQuantity = cart.items
+      .map((item) => item.quantity)
+      .reduce((prev, current) => prev + current, 0);
+  }
 
   ngOnInit(): void {
     this.headerDesktop = document.querySelector<HTMLElement>('.menu-desktop');
-
+    this.cartService.cart.subscribe((_cart) => {
+      this.cart =_cart;
+    })
   }
-  ngAfterContentChecked(): void {
-    this.badgeContent = this.cartService.getBadgeContent();
-    this.items = this.cartService.getItems();
-      }
 
   ngAfterViewInit(): void {
     this.updateHeaderClass();
@@ -49,5 +61,9 @@ export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked 
 
   clearCart(): void {
     this.cartService.clearCart();
+  }
+
+  getTotal(items: Array<CartItem>): number{
+    return this.cartService.getTotal(items);
   }
 }

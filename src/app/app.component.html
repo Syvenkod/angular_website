@@ -1,6 +1,6 @@
 <header>
 <div class="container-menu-desktop">
-<div class="menu-desktop" #headerDesktop>
+<div class="menu-desktop">
 <div class="container">
 <div class="header">
   <div class="logo">
@@ -10,12 +10,12 @@
   <ul class="menu">
    <li><a routerLink="main" routerLinkActive="active">Main</a></li>
    <li><a routerLink="catalog" routerLinkActive="active">Shop</a></li>
-   <li><a routerLink="admin" routerLinkActive="active">Admin</a></li>
+   <!-- <li><a routerLink="admin" routerLinkActive="active">Admin</a></li> -->
    <li><a routerLink="about-us" routerLinkActive="active">About</a></li>
    <li><a routerLink="contacts" routerLinkActive="active">Contact</a></li>
    <li><a
-        [matBadge]="badgeContent"
-        [matBadgeHidden]="badgeContent==0"
+        [matBadge]="itemsQuantity"
+        [matBadgeHidden]="!itemsQuantity"
         matBadgeSize="small"
         (click)="sidenav.toggle()">
         <mat-icon>shopping_cart</mat-icon>
@@ -30,11 +30,11 @@
     <mat-menu #menu="matMenu">
         <a mat-menu-item routerLink="main" routerLinkActive="active">Main</a>
         <a mat-menu-item routerLink="catalog" routerLinkActive="active">Shop</a>
-        <a mat-menu-item routerLink="admin" routerLinkActive="active">Admin</a>
+        <!-- <a mat-menu-item routerLink="admin" routerLinkActive="active">Admin</a> -->
         <a mat-menu-item routerLink="about-us" routerLinkActive="active">About</a>
         <a mat-menu-item routerLink="contacts" routerLinkActive="active">Contact</a>
-        <a mat-menu-item routerLink="cart" routerLinkActive="active"><mat-icon [matBadge]="badgeContent"
-          [matBadgeHidden]="badgeContent===0"
+        <a mat-menu-item routerLink="cart" routerLinkActive="active"><mat-icon [matBadge]="itemsQuantity"
+          [matBadgeHidden]="!itemsQuantity"
            matBadgeSize="small">shopping_cart</mat-icon></a>
     </mat-menu>
   </div>
@@ -52,19 +52,19 @@
     fixedInViewport="true">
       <div class="side-cart">
           <div class="header-side-cart">
-            <h2>quantity! Items</h2>
+            <h3>YOUR CART</h3>
           </div>
-          <mat-card class="list-items" *ngFor="let item of items" >
+          <mat-card class="list-items" *ngFor="let item of cart.items" >
             <div class="item">
-              <img mat-card-sm-image src="{{item.image}}">
+              <img mat-card-sm-image src="{{item.product}}">
             <mat-card-content>
-             <p>{{item.title}}</p>
+             <p>{{item.name}} x {{item.quantity}}</p>
               <p>{{ item.price | currency }}</p>
             </mat-card-content>
             </div>
           </mat-card>
-          <div class="total">
-            <h3>Total: <span class="font-bold">{{ "Add Total Sum" }}</span></h3>
+          <div class="total" *ngIf="cart.items.length">
+            <h3>Total:{{ getTotal(cart.items) | currency}}</h3>
 
           </div>
           <div class="btn-block">
@@ -78,7 +78,7 @@
           </div>
         </div>
     </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="content">
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 </mat-sidenav-content>

@@ -2,8 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Product } from 'src/app/components/models/product';
 import { ActivatedRoute } from '@angular/router';
-
-
 import { CartService } from '../../../service/cart.service';
 
 @Component({
@@ -24,8 +22,13 @@ export class CardComponent implements OnInit{
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(product);
-
+    this.cartService.addToCart({
+      product: product.image,
+      name: product.title,
+      price: product.price,
+      quantity: 1,
+      id: product.id
+    });
   }
 
 }

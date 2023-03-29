@@ -17,7 +17,6 @@ exports.AdminComponent = void 0;
 var core_1 = require("@angular/core");
 var animations_1 = require("@angular/animations");
 var forms_1 = require("@angular/forms");
-var table_1 = require("@angular/material/table");
 var AdminComponent = /** @class */ (function () {
     function AdminComponent(getDataService) {
         this.getDataService = getDataService;
@@ -39,19 +38,19 @@ var AdminComponent = /** @class */ (function () {
         configurable: true
     });
     AdminComponent.prototype.ngOnInit = function () {
-        var _this = this;
         // for card
-        this.getDataService.getCartData().subscribe(function (res) {
-            _this.cardSource = Object.values(res);
-            _this.dataSource = new table_1.MatTableDataSource(Object.values(res));
-            console.log(_this.cardSource);
-            _this.dataSource.filterPredicate = function (data, filter) {
-                if (_this.fromDate && _this.toDate) {
-                    return data.date >= _this.fromDate && data.date <= _this.toDate;
-                }
-                return true;
-            };
-        });
+        // this.getDataService.getCartData().subscribe(res => {
+        //   this.cardSource = Object.values(res);
+        //   this.dataSource = new MatTableDataSource(Object.values(res));
+        //   console.log(this.cardSource);
+        var _this = this;
+        //  this.dataSource.filterPredicate = (data, filter) =>{
+        //   if (this.fromDate && this.toDate) {
+        //   return data.date >= this.fromDate && data.date <= this.toDate;
+        //   }
+        //   return true;
+        // }
+        // })
         // for products
         this.getDataService.getProductData().subscribe(function (pro) {
             _this.product = Object.values(pro);

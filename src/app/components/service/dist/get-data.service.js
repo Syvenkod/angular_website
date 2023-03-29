@@ -7,8 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.GetDataService = void 0;
+var cart_list_1 = require("./../models/cart-list");
 var core_1 = require("@angular/core");
-var cart_1 = require("../models/cart");
 var operators_1 = require("rxjs/operators");
 var rxjs_1 = require("rxjs");
 var GetDataService = /** @class */ (function () {
@@ -20,13 +20,13 @@ var GetDataService = /** @class */ (function () {
         return this.http.get('https://fakestoreapi.com/products')
             .pipe(operators_1.catchError(this.handleError));
     };
-    // Cart
+    // Cartlist
     GetDataService.prototype.getCartData = function () {
         return this.http.get('https://fakestoreapi.com/carts')
             .pipe(operators_1.map(function (crd) {
             var newDataArray = [];
             for (var key in crd) {
-                newDataArray.push(new cart_1.Cart(crd[key].id, crd[key].userId, crd[key].date, crd[key].products));
+                newDataArray.push(new cart_list_1.CartList(crd[key].id, crd[key].userId, crd[key].date, crd[key].products));
             }
             newDataArray.forEach(function (card) {
                 card.date = new Date(card.date);

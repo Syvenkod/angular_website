@@ -59,6 +59,21 @@
   background-color: #222;
   color: #fff;
 }
+.product .btn-buy-now {
+  font-family: Poppins-Regular;
+  font-size: 12px;
+  line-height: 1.466667;
+  color: #333;
+  background-color: #fff;
+  border-radius: 20px;
+  min-width: 100px;
+  height: 30px;
+}
+.product .btn-buy-now:hover {
+  border-color: #222;
+  background-color: #222;
+  color: #fff;
+}
 
 #category {
   display: grid;

@@ -15,13 +15,28 @@ var AppComponent = /** @class */ (function () {
         this.cartService = cartService;
         this.title = 'Spilo store';
         this.LogoImage = 'assets/image/spilo-logo.png';
+        this._cart = { items: [] };
+        this.itemsQuantity = 0;
     }
+    Object.defineProperty(AppComponent.prototype, "cart", {
+        get: function () {
+            return this._cart;
+        },
+        set: function (cart) {
+            this._cart = cart;
+            this.itemsQuantity = cart.items
+                .map(function (item) { return item.quantity; })
+                .reduce(function (prev, current) { return prev + current; }, 0);
+        },
+        enumerable: false,
+        configurable: true
+    });
     AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.headerDesktop = document.querySelector('.menu-desktop');
-    };
-    AppComponent.prototype.ngAfterContentChecked = function () {
-        this.badgeContent = this.cartService.getBadgeContent();
-        this.items = this.cartService.getItems();
+        this.cartService.cart.subscribe(function (_cart) {
+            _this.cart = _cart;
+        });
     };
     AppComponent.prototype.ngAfterViewInit = function () {
         this.updateHeaderClass();
@@ -41,6 +56,12 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.clearCart = function () {
         this.cartService.clearCart();
     };
+    AppComponent.prototype.getTotal = function (items) {
+        return this.cartService.getTotal(items);
+    };
+    __decorate([
+        core_1.Input()
+    ], AppComponent.prototype, "cart");
     __decorate([
         core_1.HostListener('window:scroll')
     ], AppComponent.prototype, "onWindowScroll");

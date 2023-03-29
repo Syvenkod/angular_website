@@ -51,18 +51,24 @@
     background: rgba(103,117,214,0.8);
   }
   .side-cart{
+      font-family: Poppins-Regular;
+      font-size: 14px;
+      color: #888;
+      line-height: 1.5;
       width: 360px;
       overflow: hidden;
       padding-top: 75px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      .header-side-cart, .btn-block, .item{
+      .item, .header-side-cart, .btn-block{
+        width: 90%;
         display: flex;
-        justify-content: center;
         padding: 10px;
       }
-
+      .header-side-cart, .btn-block{
+        justify-content: space-around;
+      }
       .btn{
         font-family: Poppins-Regular;
         font-size: 15px;
@@ -80,4 +86,10 @@
         }
       }
     }
+  .mat-drawer-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 929px;
+}
 

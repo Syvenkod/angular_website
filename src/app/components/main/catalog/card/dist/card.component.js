@@ -22,7 +22,13 @@ var CardComponent = /** @class */ (function () {
         this.clickedProduct = this.data;
     };
     CardComponent.prototype.addToCart = function (product) {
-        this.cartService.addToCart(product);
+        this.cartService.addToCart({
+            product: product.image,
+            name: product.title,
+            price: product.price,
+            quantity: 1,
+            id: product.id
+        });
     };
     CardComponent = __decorate([
         core_1.Component({
