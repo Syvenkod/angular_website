@@ -13,9 +13,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
+import { CartService } from './components/service/cart.service';
 
 
 @NgModule({
@@ -39,7 +40,10 @@ import { MatCardModule } from '@angular/material/card';
     MatSidenavModule,
     MatCardModule,
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

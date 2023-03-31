@@ -11,9 +11,8 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var router_1 = require("@angular/router");
 var card_component_1 = require("./card.component");
-var dialog_1 = require("@angular/material/dialog");
-var icon_1 = require("@angular/material/icon");
 var ngx_sweetalert2_1 = require("@sweetalert2/ngx-sweetalert2");
+var material_module_1 = require("src/app/material.module");
 var routes = [
     { path: '', component: card_component_1.CardComponent }
 ];
@@ -27,8 +26,7 @@ var CardModule = /** @class */ (function () {
             ],
             imports: [
                 common_1.CommonModule,
-                icon_1.MatIconModule,
-                dialog_1.MatDialogModule,
+                material_module_1.MaterialModule,
                 router_1.RouterModule.forChild(routes),
                 ngx_sweetalert2_1.SweetAlert2Module
             ]

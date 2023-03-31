@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
+import { MaterialModule } from 'src/app/material.module';
 
 const routes: Routes = [
   {path: '', component: CartComponent}
@@ -16,9 +14,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    MatCardModule,
-    MatTableModule,
-    MatIconModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ]
 })

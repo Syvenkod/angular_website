@@ -10,13 +10,8 @@ exports.AdminModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
+var material_module_1 = require("../../material.module");
 var admin_component_1 = require("./admin.component");
-var table_1 = require("@angular/material/table");
-var icon_1 = require("@angular/material/icon");
-var datepicker_1 = require("@angular/material/datepicker");
-var core_2 = require("@angular/material/core");
-var input_1 = require("@angular/material/input");
-var form_field_1 = require("@angular/material/form-field");
 var forms_1 = require("@angular/forms");
 var forms_2 = require("@angular/forms");
 var routes = [
@@ -32,12 +27,7 @@ var AdminModule = /** @class */ (function () {
             ],
             imports: [
                 common_1.CommonModule,
-                table_1.MatTableModule,
-                icon_1.MatIconModule,
-                input_1.MatInputModule,
-                form_field_1.MatFormFieldModule,
-                core_2.MatNativeDateModule,
-                datepicker_1.MatDatepickerModule,
+                material_module_1.MaterialModule,
                 forms_1.FormsModule,
                 forms_2.ReactiveFormsModule,
                 router_1.RouterModule.forChild(routes)

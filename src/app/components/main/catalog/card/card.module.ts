@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { CardComponent } from './card.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { MaterialModule } from 'src/app/material.module';
 
 const routes: Routes = [
   {path: '', component: CardComponent}
@@ -16,8 +15,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    MatIconModule,
-    MatDialogModule,
+    MaterialModule,
     RouterModule.forChild(routes),
     SweetAlert2Module
   ]

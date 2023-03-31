@@ -24,6 +24,7 @@ var ngx_sweetalert2_1 = require("@sweetalert2/ngx-sweetalert2");
 var badge_1 = require("@angular/material/badge");
 var sidenav_1 = require("@angular/material/sidenav");
 var card_1 = require("@angular/material/card");
+var cart_service_1 = require("./components/service/cart.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -49,7 +50,10 @@ var AppModule = /** @class */ (function () {
                 sidenav_1.MatSidenavModule,
                 card_1.MatCardModule,
             ],
-            providers: [common_1.DatePipe],
+            providers: [
+                common_1.DatePipe,
+                cart_service_1.CartService
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
