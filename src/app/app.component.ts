@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, Input, OnInit} from '@angular/core';
+import { Component, HostListener, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart, CartItem } from './components/models/cart';
 import { CartService } from './components/service/cart.service';
@@ -8,7 +8,7 @@ import { CartService } from './components/service/cart.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   constructor(
     public router: Router,
     private activatedRoute: ActivatedRoute,
@@ -39,10 +39,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.cartService.cart.subscribe((_cart) => {
       this.cart =_cart;
     })
-  }
-
-  ngAfterViewInit(): void {
-    this.updateHeaderClass();
   }
 
   @HostListener('window:scroll')

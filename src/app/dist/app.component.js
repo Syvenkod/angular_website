@@ -38,9 +38,6 @@ var AppComponent = /** @class */ (function () {
             _this.cart = _cart;
         });
     };
-    AppComponent.prototype.ngAfterViewInit = function () {
-        this.updateHeaderClass();
-    };
     AppComponent.prototype.onWindowScroll = function () {
         this.updateHeaderClass();
     };
