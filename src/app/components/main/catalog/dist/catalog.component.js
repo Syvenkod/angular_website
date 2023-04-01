@@ -70,7 +70,6 @@ var CatalogComponent = /** @class */ (function () {
         if (this.categoriesDescription) {
             this.categoriesDescription.unsubscribe();
         }
-        throw new Error('Method not implemented.');
     };
     CatalogComponent = __decorate([
         core_1.Component({

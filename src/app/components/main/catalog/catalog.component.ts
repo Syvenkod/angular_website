@@ -86,6 +86,5 @@ export class CatalogComponent implements OnInit, OnDestroy {
     if (this.categoriesDescription){
       this.categoriesDescription.unsubscribe();
     }
-    throw new Error('Method not implemented.');
   }
 }

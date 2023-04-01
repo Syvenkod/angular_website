@@ -31,7 +31,6 @@ var CartService = /** @class */ (function () {
             items.push(item);
         }
         this.cart.next({ items: items });
-        console.log(this.cart.value);
     };
     CartService.prototype.removeQuantity = function (item) {
         var itemForRemove;
