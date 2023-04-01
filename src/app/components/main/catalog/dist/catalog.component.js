@@ -21,22 +21,16 @@ var CatalogComponent = /** @class */ (function () {
     CatalogComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.getAllProducts();
-        this.getDataService.getCategoriesData().subscribe(function (ct) {
-            _this.categories = ct;
+        this.categoriesDescription = this.getDataService.getCategoriesData().subscribe(function (responce) {
+            _this.categories = responce;
         });
     };
-    CatalogComponent.prototype.getAllProducts = function () {
+    CatalogComponent.prototype.getAllProducts = function (category) {
         var _this = this;
-        this.getDataService.getProductData().subscribe(function (responce) {
+        this.productsDescription = this.getDataService.getProductData(category).subscribe(function (responce) {
             _this.products = responce;
         });
         this.sort = 'Price';
-    };
-    CatalogComponent.prototype.showCategory = function (category) {
-        var _this = this;
-        this.getDataService.getCategoryData(category).subscribe(function (categ) {
-            _this.products = categ;
-        });
     };
     CatalogComponent.prototype.getPriceInc = function () {
         this.products.sort(function (a, b) { return (a.price - b.price); });
@@ -68,6 +62,15 @@ var CatalogComponent = /** @class */ (function () {
         dialogRef.afterClosed().subscribe(function (result) {
             _this.clickedProduct = {};
         });
+    };
+    CatalogComponent.prototype.ngOnDestroy = function () {
+        if (this.productsDescription) {
+            this.productsDescription.unsubscribe();
+        }
+        if (this.categoriesDescription) {
+            this.categoriesDescription.unsubscribe();
+        }
+        throw new Error('Method not implemented.');
     };
     CatalogComponent = __decorate([
         core_1.Component({

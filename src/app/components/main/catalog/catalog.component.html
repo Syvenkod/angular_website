@@ -3,7 +3,7 @@
   <div id="category">
     <div class="category-name">
   <div><button (click)="getAllProducts()">All Products</button></div>
-  <div *ngFor="let category of categories" (click)="showCategory(category)">
+  <div *ngFor="let category of categories" (click)="getAllProducts(category)">
     <button>{{category}}</button>
   </div>
 </div>

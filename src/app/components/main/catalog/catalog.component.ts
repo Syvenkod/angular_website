@@ -1,9 +1,10 @@
 import { Product } from './../../models/product';
 import { CardComponent } from './card/card.component';
-import { ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import { GetDataService } from '../../service/get-data.service';
 import { MatDialog} from '@angular/material/dialog';
 import { CartService } from '../../service/cart.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,44 +14,35 @@ import { CartService } from '../../service/cart.service';
   changeDetection: ChangeDetectionStrategy.Default
 })
 
-export class CatalogComponent implements OnInit, Product {
+export class CatalogComponent implements OnInit, OnDestroy {
 
   constructor(private getDataService: GetDataService,
               public dialog: MatDialog,
               private cartService: CartService) {}
 
-   products: any | undefined;
-   category:string;
-   categories:Array<string> | undefined;
-   description: string;
-   id:number;
-   image: string;
-   price: number;
-   title: string;
+
+   products: Array<Product>| undefined;
+   categories: Array<string> | undefined;
    page: number = 1;
-   currentValue: any | undefined;
+   currentValue: string | undefined;
    clickedProduct: any | undefined;
    sort: string | undefined;
    filtered: boolean = false;
+   productsDescription: Subscription | undefined;
+   categoriesDescription: Subscription | undefined;
 
 
   ngOnInit(): void {
     this.getAllProducts();
-    this.getDataService.getCategoriesData().subscribe(ct => {
-      this.categories = ct;});
+    this.categoriesDescription = this.getDataService.getCategoriesData().subscribe(responce => {
+      this.categories = responce;});
   }
 
-  getAllProducts(){
-    this.getDataService.getProductData().subscribe(responce => {
+  getAllProducts(category?: string){
+    this.productsDescription = this.getDataService.getProductData(category).subscribe(responce => {
       this.products = responce;
     })
     this.sort = 'Price';
-  }
-
-  showCategory(category){
-    this.getDataService.getCategoryData(category).subscribe(categ => {
-      this.products = categ;
-    })
   }
 
   getPriceInc(): void {
@@ -87,4 +79,13 @@ export class CatalogComponent implements OnInit, Product {
      })
    }
 
+   ngOnDestroy(): void {
+    if (this.productsDescription) {
+      this.productsDescription.unsubscribe();
+    }
+    if (this.categoriesDescription){
+      this.categoriesDescription.unsubscribe();
+    }
+    throw new Error('Method not implemented.');
+  }
 }

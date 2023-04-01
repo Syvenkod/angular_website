@@ -11,18 +11,19 @@ var cart_list_1 = require("./../models/cart-list");
 var core_1 = require("@angular/core");
 var operators_1 = require("rxjs/operators");
 var rxjs_1 = require("rxjs");
+var BASE_URL = 'https://fakestoreapi.com';
 var GetDataService = /** @class */ (function () {
     function GetDataService(http) {
         this.http = http;
     }
     // Products
-    GetDataService.prototype.getProductData = function () {
-        return this.http.get('https://fakestoreapi.com/products')
+    GetDataService.prototype.getProductData = function (category) {
+        return this.http.get(BASE_URL + "/products" + (category ? '/category/' + category : ''))
             .pipe(operators_1.catchError(this.handleError));
     };
     // Cartlist
     GetDataService.prototype.getCartData = function () {
-        return this.http.get('https://fakestoreapi.com/carts')
+        return this.http.get(BASE_URL + "/carts")
             .pipe(operators_1.map(function (crd) {
             var newDataArray = [];
             for (var key in crd) {
@@ -37,16 +38,12 @@ var GetDataService = /** @class */ (function () {
     };
     // Users
     GetDataService.prototype.getUserData = function () {
-        return this.http.get('https://fakestoreapi.com/users')
+        return this.http.get(BASE_URL + "/users")
             .pipe(operators_1.catchError(this.handleError));
     };
     // Categories
     GetDataService.prototype.getCategoriesData = function () {
-        return this.http.get('https://fakestoreapi.com/products/categories')
-            .pipe(operators_1.catchError(this.handleError));
-    };
-    GetDataService.prototype.getCategoryData = function (category) {
-        return this.http.get("https://fakestoreapi.com/products/category/" + category)
+        return this.http.get(BASE_URL + "/products/categories")
             .pipe(operators_1.catchError(this.handleError));
     };
     // Slides

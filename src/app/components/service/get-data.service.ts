@@ -7,6 +7,8 @@ import { Product } from '../models/product';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
+const BASE_URL = 'https://fakestoreapi.com';
+
 @Injectable()
 export class GetDataService {
 
@@ -14,14 +16,17 @@ export class GetDataService {
 
   // Products
 
-  getProductData():Observable<Product[]>{
-    return this.http.get<Product[]>('https://fakestoreapi.com/products')
+  getProductData(category?: string):Observable<Product[]>{
+    return this.http.get<Product[]>(
+      `${BASE_URL}/products${
+        category? '/category/' + category : ''
+      }`)
     .pipe(catchError(this.handleError));
   }
 
   // Cartlist
   getCartData():Observable<CartList[]>{
-    return this.http.get<CartList[]>('https://fakestoreapi.com/carts')
+    return this.http.get<CartList[]>(`${BASE_URL}/carts`)
     .pipe(
       map(crd =>{
         let newDataArray = [];
@@ -39,18 +44,13 @@ export class GetDataService {
 
 // Users
   getUserData():Observable<User[]>{
-    return this.http.get<User[]>('https://fakestoreapi.com/users')
+    return this.http.get<User[]>(`${BASE_URL}/users`)
     .pipe(catchError(this.handleError));
   }
 
 // Categories
-  getCategoriesData():Observable<Array<string>>{
-    return this.http.get<Array<string>>('https://fakestoreapi.com/products/categories')
-    .pipe(catchError(this.handleError));
-  }
-
-  getCategoryData(category){
-    return this.http.get(`https://fakestoreapi.com/products/category/${category}`)
+  getCategoriesData(): Observable<string[]>{
+    return this.http.get<string[]>(`${BASE_URL}/products/categories`)
     .pipe(catchError(this.handleError));
   }
 
