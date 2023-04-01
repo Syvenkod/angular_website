@@ -16,23 +16,21 @@ var CatalogComponent = /** @class */ (function () {
         this.dialog = dialog;
         this.cartService = cartService;
         this.page = 1;
-        this.selected = '';
+        this.filtered = false;
     }
     CatalogComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getDataService.getProductData().subscribe(function (res) {
-            _this.products = res;
-            console.table(_this.products);
-        });
+        this.getAllProducts();
         this.getDataService.getCategoriesData().subscribe(function (ct) {
             _this.categories = ct;
         });
     };
     CatalogComponent.prototype.getAllProducts = function () {
         var _this = this;
-        this.getDataService.getProductData().subscribe(function (res) {
-            _this.products = res;
+        this.getDataService.getProductData().subscribe(function (responce) {
+            _this.products = responce;
         });
+        this.sort = 'Price';
     };
     CatalogComponent.prototype.showCategory = function (category) {
         var _this = this;
@@ -42,24 +40,11 @@ var CatalogComponent = /** @class */ (function () {
     };
     CatalogComponent.prototype.getPriceInc = function () {
         this.products.sort(function (a, b) { return (a.price - b.price); });
-        return this.products;
+        this.sort = 'Increase';
     };
     CatalogComponent.prototype.getPriceDec = function () {
         this.products.sort(function (a, b) { return (b.price - a.price); });
-        return this.products;
-    };
-    CatalogComponent.prototype.ngAfterContentChecked = function () {
-        switch (this.selected) {
-            case 'None':
-                this.getAllProducts();
-                break;
-            case 'Sort by increase':
-                this.getPriceInc();
-                break;
-            case 'Sort by decrease':
-                this.getPriceDec();
-                break;
-        }
+        this.sort = 'Decrease';
     };
     CatalogComponent.prototype.addToCart = function (product) {
         this.cartService.addToCart({

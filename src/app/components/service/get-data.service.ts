@@ -44,8 +44,8 @@ export class GetDataService {
   }
 
 // Categories
-  getCategoriesData(){
-    return this.http.get('https://fakestoreapi.com/products/categories')
+  getCategoriesData():Observable<Array<string>>{
+    return this.http.get<Array<string>>('https://fakestoreapi.com/products/categories')
     .pipe(catchError(this.handleError));
   }
 

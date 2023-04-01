@@ -78,16 +78,16 @@
 #category {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(445px, 1fr));
+  min-height: 50px;
   gap: 10px;
+  align-items: center;
 }
 #category .category-name {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  align-items: center;
 }
-#category .category-name button {
+#category button {
   text-transform: capitalize;
   background: transparent;
   outline: none;
@@ -97,7 +97,7 @@
   font-size: 15px;
   line-height: 1.2;
 }
-#category .category-name button:hover {
+#category button:hover {
   font-weight: bold;
   color: #333;
   border-bottom: 1px solid #797979;
@@ -105,6 +105,17 @@
 #category .sort-filter {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  font-size: 12px;
+}
+
+.show-search {
+  height: 100%;
+  margin-bottom: 1%;
+}
+.show-search .search-card {
+  padding: 0 1%;
+}
+.show-search .search-card input {
+  width: 80%;
+  border: none;
+  outline: none;
 }

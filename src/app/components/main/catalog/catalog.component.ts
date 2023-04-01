@@ -1,6 +1,6 @@
 import { Product } from './../../models/product';
 import { CardComponent } from './card/card.component';
-import { ChangeDetectionStrategy, Component, OnInit, AfterContentChecked} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import { GetDataService } from '../../service/get-data.service';
 import { MatDialog} from '@angular/material/dialog';
 import { CartService } from '../../service/cart.service';
@@ -13,7 +13,7 @@ import { CartService } from '../../service/cart.service';
   changeDetection: ChangeDetectionStrategy.Default
 })
 
-export class CatalogComponent implements OnInit, Product, AfterContentChecked {
+export class CatalogComponent implements OnInit, Product {
 
   constructor(private getDataService: GetDataService,
               public dialog: MatDialog,
@@ -21,30 +21,30 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
 
    products: any | undefined;
    category:string;
-   categories:any|undefined;
+   categories:Array<string> | undefined;
    description: string;
    id:number;
    image: string;
    price: number;
    title: string;
    page: number = 1;
-   selected ='';
    currentValue: any | undefined;
    clickedProduct: any | undefined;
+   sort: string | undefined;
+   filtered: boolean = false;
 
 
   ngOnInit(): void {
-    this.getDataService.getProductData().subscribe(res => {
-      this.products = res;
-      console.table(this.products);});
+    this.getAllProducts();
     this.getDataService.getCategoriesData().subscribe(ct => {
       this.categories = ct;});
   }
 
   getAllProducts(){
-    this.getDataService.getProductData().subscribe(res => {
-      this.products = res;
+    this.getDataService.getProductData().subscribe(responce => {
+      this.products = responce;
     })
+    this.sort = 'Price';
   }
 
   showCategory(category){
@@ -53,29 +53,14 @@ export class CatalogComponent implements OnInit, Product, AfterContentChecked {
     })
   }
 
-  getPriceInc(){
+  getPriceInc(): void {
     this.products.sort((a,b) => (a.price - b.price))
-    return this.products;
+    this.sort = 'Increase';
   }
 
-  getPriceDec(){
+  getPriceDec(): void{
     this.products.sort((a,b) => (b.price - a.price))
-    return this.products;
-  }
-
-
-  ngAfterContentChecked(): void {
-    switch (this.selected){
-      case 'None':
-        this.getAllProducts();
-        break;
-          case 'Sort by increase':
-            this.getPriceInc();
-           break;
-            case 'Sort by decrease':
-              this.getPriceDec();
-              break;
-    }
+    this.sort = 'Decrease';
   }
 
   addToCart(product: Product) {
