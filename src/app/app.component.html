@@ -59,21 +59,20 @@
               <img mat-card-sm-image src="{{item.product}}">
             <mat-card-content>
              <p>{{item.name}} x {{item.quantity}}</p>
-              <p>{{ item.price | currency }}</p>
+             <p>{{ item.price | currency }}</p>
             </mat-card-content>
             </div>
           </mat-card>
           <div class="total" *ngIf="cart.items.length">
-            <h3>Total:{{ getTotal(cart.items) | currency}}</h3>
-
+            <span>Total:</span><span>{{ getTotal(cart.items) | currency}}</span>
           </div>
           <div class="btn-block">
-            <button class="btn"
+            <button class="btn trans-05"
               routerLink="cart"
               routerLinkActive="active"
               (click)="sidenav.toggle()">
               View Cart</button>
-            <button class="btn"
+            <button class="btn trans-05"
             (click)="clearCart()">Clear Cart</button>
           </div>
         </div>

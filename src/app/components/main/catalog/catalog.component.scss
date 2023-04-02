@@ -68,8 +68,8 @@
                 min-width: 100px;
                 height: 30px;
                 &:hover{
-                    border-color: #222;
-                    background-color: #222;
+                    border-color: rgba(103,117,214,0.8);
+                    background-color: rgba(103,117,214,0.8);
                     color: #fff;
                 }
         }
@@ -118,4 +118,7 @@
             outline: none;
         }
     }
+}
+.mat-icon {
+  vertical-align: middle;
 }

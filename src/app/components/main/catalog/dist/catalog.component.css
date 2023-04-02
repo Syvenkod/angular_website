@@ -70,8 +70,8 @@
   height: 30px;
 }
 .product .btn-buy-now:hover {
-  border-color: #222;
-  background-color: #222;
+  border-color: rgba(103, 117, 214, 0.8);
+  background-color: rgba(103, 117, 214, 0.8);
   color: #fff;
 }
 
@@ -118,4 +118,8 @@
   width: 80%;
   border: none;
   outline: none;
+}
+
+.mat-icon {
+  vertical-align: middle;
 }
