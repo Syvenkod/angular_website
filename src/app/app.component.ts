@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   LogoImage: string = 'assets/image/spilo-logo.png';
   headerDesktop: HTMLElement;
   mobile: boolean = false;
+  desktop: boolean = true;
 
   private _cart: Cart = { items: []};
   itemsQuantity = 0;
@@ -50,8 +51,12 @@ export class AppComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
 	onResize(event) {
     	if (event.target.innerWidth <= 576){
+      this.desktop = false;
       this.mobile = true;
-    } else {this.mobile = false}
+    } else {
+      this.desktop = true;
+      this.mobile = false;
+      }
 	}
 
   private updateHeaderClass(): void {

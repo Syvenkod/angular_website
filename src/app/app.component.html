@@ -7,7 +7,7 @@
   <img src="{{LogoImage}}" alt="logo">
   </div>
   <nav>
-  <ul class="menu">
+  <ul class="menu" *ngIf="desktop">
    <li><a routerLink="main" routerLinkActive="active">Main</a></li>
    <li><a routerLink="catalog" routerLinkActive="active">Shop</a></li>
    <!-- <li><a routerLink="admin" routerLinkActive="active">Admin</a></li> -->

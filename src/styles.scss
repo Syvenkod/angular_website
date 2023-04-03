@@ -140,11 +140,7 @@ body { margin: auto; font-family: Roboto, "Helvetica Neue", sans-serif; }
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       justify-items: center;
   }
-  .menu {
-    display: none !important;
-  }
-
-  .trans-image{
+   .trans-image{
     height: auto;
   }
 }

@@ -16,6 +16,7 @@ var AppComponent = /** @class */ (function () {
         this.title = 'Spilo store';
         this.LogoImage = 'assets/image/spilo-logo.png';
         this.mobile = false;
+        this.desktop = true;
         this._cart = { items: [] };
         this.itemsQuantity = 0;
     }
@@ -44,9 +45,11 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.onResize = function (event) {
         if (event.target.innerWidth <= 576) {
+            this.desktop = false;
             this.mobile = true;
         }
         else {
+            this.desktop = true;
             this.mobile = false;
         }
     };
