@@ -7,9 +7,6 @@
   display: flex;
   justify-content: flex-end;
 }
-.header .menu-mobile {
-  visibility: collapse;
-}
 .header a {
   padding: 5px;
   color: black;

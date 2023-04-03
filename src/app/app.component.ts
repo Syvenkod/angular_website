@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   title = 'Spilo store';
   LogoImage: string = 'assets/image/spilo-logo.png';
   headerDesktop: HTMLElement;
+  mobile: boolean = false;
 
   private _cart: Cart = { items: []};
   itemsQuantity = 0;
@@ -45,6 +46,13 @@ export class AppComponent implements OnInit {
   onWindowScroll(): void {
     this.updateHeaderClass();
   }
+
+  @HostListener('window:resize', ['$event'])
+	onResize(event) {
+    	if (event.target.innerWidth <= 576){
+      this.mobile = true;
+    } else {this.mobile = false}
+	}
 
   private updateHeaderClass(): void {
     const url = this.activatedRoute.snapshot['_routerState'].url;

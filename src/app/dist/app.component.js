@@ -15,6 +15,7 @@ var AppComponent = /** @class */ (function () {
         this.cartService = cartService;
         this.title = 'Spilo store';
         this.LogoImage = 'assets/image/spilo-logo.png';
+        this.mobile = false;
         this._cart = { items: [] };
         this.itemsQuantity = 0;
     }
@@ -41,6 +42,14 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.onWindowScroll = function () {
         this.updateHeaderClass();
     };
+    AppComponent.prototype.onResize = function (event) {
+        if (event.target.innerWidth <= 576) {
+            this.mobile = true;
+        }
+        else {
+            this.mobile = false;
+        }
+    };
     AppComponent.prototype.updateHeaderClass = function () {
         var url = this.activatedRoute.snapshot['_routerState'].url;
         if (window.pageYOffset > 0 || url !== '/main') {
@@ -62,6 +71,9 @@ var AppComponent = /** @class */ (function () {
     __decorate([
         core_1.HostListener('window:scroll')
     ], AppComponent.prototype, "onWindowScroll");
+    __decorate([
+        core_1.HostListener('window:resize', ['$event'])
+    ], AppComponent.prototype, "onResize");
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-root',
