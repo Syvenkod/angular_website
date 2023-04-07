@@ -29,7 +29,9 @@
               .show-pic img{
                 width: 100%;
               }
-              button{
+              .add-to-cart{
+                vertical-align: super;
+                margin-left: 1rem;
                 font-family: Poppins-Regular;
                 font-size: 15px;
                 line-height: 1.466667;
@@ -48,3 +50,6 @@
         }
   }
 }
+.quantity{
+  vertical-align: super;
+  }

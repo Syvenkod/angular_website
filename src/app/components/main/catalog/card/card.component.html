@@ -20,6 +20,14 @@
                         <p>{{product.description}}</p>
                     </div>
                         <div>
+                            <button
+                    mat-icon-button
+                    (click)="removeQuantity()"><mat-icon>remove</mat-icon></button>
+                    <span class="quantity"> {{productQuantity}} </span>
+                    <button
+                    mat-icon-button
+                    (click)="addQuantity()"><mat-icon>add</mat-icon>
+                    </button>
                             <swal
                                 #Swal
                                 title="{{product.title}}"
@@ -29,7 +37,7 @@
                                 [timer]="2000"
                             >
                             </swal>
-                            <button (click)="addToCart(product)"
+                            <button class="add-to-cart" (click)="addToCart(product)"
                             [swal]="Swal"
                             >Add to Cart</button>
                         </div>

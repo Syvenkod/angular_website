@@ -29,7 +29,9 @@
 .card .content .card-product .show-pic img {
   width: 100%;
 }
-.card .content .card-product button {
+.card .content .card-product .add-to-cart {
+  vertical-align: super;
+  margin-left: 1rem;
   font-family: Poppins-Regular;
   font-size: 15px;
   line-height: 1.466667;
@@ -39,8 +41,12 @@
   min-width: 139px;
   height: 40px;
 }
-.card .content .card-product button:hover {
+.card .content .card-product .add-to-cart:hover {
   border-color: #222;
   background-color: #222;
   color: #fff;
+}
+
+.quantity {
+  vertical-align: super;
 }

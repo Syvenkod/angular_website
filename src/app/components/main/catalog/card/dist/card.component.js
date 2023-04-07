@@ -17,16 +17,26 @@ var CardComponent = /** @class */ (function () {
         this.data = data;
         this.route = route;
         this.cartService = cartService;
+        this.productQuantity = 1;
     }
     CardComponent.prototype.ngOnInit = function () {
         this.clickedProduct = this.data;
+    };
+    CardComponent.prototype.addQuantity = function () {
+        this.productQuantity++;
+    };
+    CardComponent.prototype.removeQuantity = function () {
+        if (this.productQuantity === 1) {
+            return;
+        }
+        this.productQuantity--;
     };
     CardComponent.prototype.addToCart = function (product) {
         this.cartService.addToCart({
             product: product.image,
             name: product.title,
             price: product.price,
-            quantity: 1,
+            quantity: this.productQuantity,
             id: product.id
         });
     };
