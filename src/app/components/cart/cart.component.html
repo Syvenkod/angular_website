@@ -64,7 +64,10 @@
                     mat-mini-fab><mat-icon>delete</mat-icon></button>
                 </td>
                 <td mat-footer-cell *matFooterCellDef>
-                    <button class="btn trans-05">Proceed To Checkout</button>
+                    <button
+                    (click)="onCheckout()"
+                    class="btn trans-05">
+                    Proceed To Checkout</button>
                 </td>
             </ng-container>
 
