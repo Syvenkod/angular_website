@@ -1,6 +1,7 @@
+import { CommonService } from 'src/app/components/service/common.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GetDataService } from '../service/get-data.service';
 import { faFacebook, faPinterest, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
@@ -13,7 +14,9 @@ export class FooterComponent implements OnInit {
 
   constructor(private getDataService: GetDataService,
               public router: Router,
-              private subscribeForm: FormBuilder) {}
+              private activatedRoute: ActivatedRoute,
+              private subscribeForm: FormBuilder,
+              private commonServise: CommonService) {}
 
   form: FormGroup;
   categories:any|undefined;
@@ -29,8 +32,14 @@ export class FooterComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]]
     })
   }
-  showCategory(){
+  showCategory(category: string){
     this.router.navigateByUrl('catalog');
+    this.commonServise.clickedCategory(category);
+    const url = this.activatedRoute.snapshot['_routerState'].url;
+    if (url == '/catalog'){
+      this.router.navigateByUrl('/main');
+      this.commonServise.clickedCategory(category);
+    }
   }
 
   onSubmit(form) {

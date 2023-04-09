@@ -11,10 +11,12 @@ var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
 var free_brands_svg_icons_1 = require("@fortawesome/free-brands-svg-icons");
 var FooterComponent = /** @class */ (function () {
-    function FooterComponent(getDataService, router, subscribeForm) {
+    function FooterComponent(getDataService, router, activatedRoute, subscribeForm, commonServise) {
         this.getDataService = getDataService;
         this.router = router;
+        this.activatedRoute = activatedRoute;
         this.subscribeForm = subscribeForm;
+        this.commonServise = commonServise;
         this.facebook = free_brands_svg_icons_1.faFacebook;
         this.itstagram = free_brands_svg_icons_1.faInstagram;
         this.pinterest = free_brands_svg_icons_1.faPinterest;
@@ -29,8 +31,14 @@ var FooterComponent = /** @class */ (function () {
             email: [null, [forms_1.Validators.required, forms_1.Validators.email]]
         });
     };
-    FooterComponent.prototype.showCategory = function () {
+    FooterComponent.prototype.showCategory = function (category) {
         this.router.navigateByUrl('catalog');
+        this.commonServise.clickedCategory(category);
+        var url = this.activatedRoute.snapshot['_routerState'].url;
+        if (url == '/catalog') {
+            this.router.navigateByUrl('/main');
+            this.commonServise.clickedCategory(category);
+        }
     };
     FooterComponent.prototype.onSubmit = function (form) {
         console.log(form.value);
