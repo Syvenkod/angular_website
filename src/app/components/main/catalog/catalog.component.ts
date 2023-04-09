@@ -1,3 +1,4 @@
+import { CommonService } from 'src/app/components/service/common.service';
 import { Product } from './../../models/product';
 import { CardComponent } from './card/card.component';
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
@@ -5,7 +6,6 @@ import { GetDataService } from '../../service/get-data.service';
 import { MatDialog} from '@angular/material/dialog';
 import { CartService } from '../../service/cart.service';
 import { Subscription } from 'rxjs';
-
 
 @Component({
   selector: 'app-catalog',
@@ -18,11 +18,13 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
   constructor(private getDataService: GetDataService,
               public dialog: MatDialog,
-              private cartService: CartService) {}
+              private cartService: CartService,
+              private commonService: CommonService) {}
 
 
    products: Array<Product>| undefined;
    categories: Array<string> | undefined;
+   category: string | undefined;
    page: number = 1;
    currentValue: string | undefined;
    clickedProduct: any | undefined;
@@ -33,7 +35,10 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.getAllProducts();
+    this.commonService.category$.subscribe((_category) => {
+      this.category = _category;
+    })
+    this.getAllProducts(this.category);
     this.categoriesDescription = this.getDataService.getCategoriesData().subscribe(responce => {
       this.categories = responce;});
   }

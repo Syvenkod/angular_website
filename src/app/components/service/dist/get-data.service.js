@@ -51,6 +51,7 @@ var GetDataService = /** @class */ (function () {
         return this.http.get('../../assets/slides.json')
             .pipe(operators_1.catchError(this.handleError));
     };
+    // Error
     GetDataService.prototype.handleError = function (error) {
         if (error.status === 0) {
             console.error('An error occurred:', error.error);

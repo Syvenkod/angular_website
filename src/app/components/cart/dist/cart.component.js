@@ -62,7 +62,6 @@ var CartComponent = /** @class */ (function () {
     }
     CartComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.dataSource = this.cart.items;
         this.cartService.cart.subscribe(function (_cart) {
             _this.cart = _cart;
             _this.dataSource = _this.cart.items;

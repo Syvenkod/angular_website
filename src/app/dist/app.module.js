@@ -25,6 +25,7 @@ var badge_1 = require("@angular/material/badge");
 var sidenav_1 = require("@angular/material/sidenav");
 var card_1 = require("@angular/material/card");
 var cart_service_1 = require("./components/service/cart.service");
+var common_service_1 = require("./components/service/common.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -52,7 +53,8 @@ var AppModule = /** @class */ (function () {
             ],
             providers: [
                 common_1.DatePipe,
-                cart_service_1.CartService
+                cart_service_1.CartService,
+                common_service_1.CommonService
             ],
             bootstrap: [app_component_1.AppComponent]
         })

@@ -11,16 +11,20 @@ var product_1 = require("./../../models/product");
 var card_component_1 = require("./card/card.component");
 var core_1 = require("@angular/core");
 var CatalogComponent = /** @class */ (function () {
-    function CatalogComponent(getDataService, dialog, cartService) {
+    function CatalogComponent(getDataService, dialog, cartService, commonService) {
         this.getDataService = getDataService;
         this.dialog = dialog;
         this.cartService = cartService;
+        this.commonService = commonService;
         this.page = 1;
         this.filtered = false;
     }
     CatalogComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getAllProducts();
+        this.commonService.category$.subscribe(function (_category) {
+            _this.category = _category;
+        });
+        this.getAllProducts(this.category);
         this.categoriesDescription = this.getDataService.getCategoriesData().subscribe(function (responce) {
             _this.categories = responce;
         });

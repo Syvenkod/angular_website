@@ -9,14 +9,15 @@ exports.__esModule = true;
 exports.BannerComponent = void 0;
 var core_1 = require("@angular/core");
 var BannerComponent = /** @class */ (function () {
-    function BannerComponent(getDataService, router) {
-        this.getDataService = getDataService;
+    function BannerComponent(commonService, router) {
+        this.commonService = commonService;
         this.router = router;
     }
     BannerComponent.prototype.ngOnInit = function () {
     };
-    BannerComponent.prototype.goToShop = function () {
+    BannerComponent.prototype.goToShop = function (category) {
         this.router.navigateByUrl('catalog');
+        this.commonService.clickedCategory(category);
     };
     BannerComponent = __decorate([
         core_1.Component({

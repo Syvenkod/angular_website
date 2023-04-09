@@ -17,6 +17,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { CartService } from './components/service/cart.service';
+import { CommonService } from './components/service/common.service';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { CartService } from './components/service/cart.service';
   ],
   providers: [
     DatePipe,
-    CartService
+    CartService,
+    CommonService
   ],
   bootstrap: [AppComponent]
 })

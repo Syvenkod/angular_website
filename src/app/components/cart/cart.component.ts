@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { CartService } from './../service/cart.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Cart, CartItem } from '../models/cart';
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -26,7 +25,6 @@ export class CartComponent implements OnInit {
                private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.dataSource = this.cart.items;
     this.cartService.cart.subscribe((_cart: Cart) => {
       this.cart =_cart;
       this.dataSource = this.cart.items;

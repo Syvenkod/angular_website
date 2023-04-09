@@ -60,7 +60,7 @@ export class GetDataService {
     .pipe(catchError(this.handleError));
   }
 
-
+// Error
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
