@@ -11,7 +11,6 @@ import { CartService } from './components/service/cart.service';
 export class AppComponent implements OnInit {
   constructor(
     public router: Router,
-    private activatedRoute: ActivatedRoute,
     private cartService: CartService
   ) {}
 
@@ -60,8 +59,8 @@ export class AppComponent implements OnInit {
 	}
 
   private updateHeaderClass(): void {
-    const url = this.activatedRoute.snapshot['_routerState'].url;
-    if (window.pageYOffset > 0 || url !== '/main') {
+
+    if (window.scrollY > 0 || this.router.url !== '/main') {
       this.headerDesktop.classList.add('fix-menu-desktop');
     } else {
       this.headerDesktop.classList.remove('fix-menu-desktop');

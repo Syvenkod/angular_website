@@ -9,9 +9,8 @@ exports.__esModule = true;
 exports.AppComponent = void 0;
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
-    function AppComponent(router, activatedRoute, cartService) {
+    function AppComponent(router, cartService) {
         this.router = router;
-        this.activatedRoute = activatedRoute;
         this.cartService = cartService;
         this.title = 'Spilo store';
         this.LogoImage = 'assets/image/spilo-logo.png';
@@ -54,8 +53,7 @@ var AppComponent = /** @class */ (function () {
         }
     };
     AppComponent.prototype.updateHeaderClass = function () {
-        var url = this.activatedRoute.snapshot['_routerState'].url;
-        if (window.pageYOffset > 0 || url !== '/main') {
+        if (window.scrollY > 0 || this.router.url !== '/main') {
             this.headerDesktop.classList.add('fix-menu-desktop');
         }
         else {
